@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 void convBase(int num, int base){
-    if(num < 2) {
+    if(num < base) {
         printf("%d", num);
         return;
     }
