@@ -1,10 +1,11 @@
 #include<stdio.h>
-#define N 100
+#include<math.h>
 
 void convBase(int num, int base){
     int quociente;
     int resto;
-    int convertido[N];
+    int tam = ceil((log(num)/log(base)));//Faz o log para saber quantos bits é necessario para armazenar o valor convertido 
+    int convertido[tam];
     int i = 0;
 
     while(num >= base){
@@ -14,10 +15,10 @@ void convBase(int num, int base){
         num = quociente;
     }
     convertido[i] = num;
-    for(int j = i; j >= 0; j--) printf("%d",convertido[j]);
+    for(int j = tam-1; j >= 0; j--) printf("%d",convertido[j]);
 
 }
 
 void main(){
-    convBase(9,8);
+    convBase(10,3);
 }
