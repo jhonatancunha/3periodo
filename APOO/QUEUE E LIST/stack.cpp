@@ -11,7 +11,7 @@ class Node{
         Node(){
             this->value = 0;
             this->next = NULL;
-        }
+        };
 
         /**
         * Used to get the next element of the stack;
@@ -41,7 +41,7 @@ class Node{
         */
         void setValue(int n){
             value = n;
-        }    
+        };   
 };
 
 class Stack{
@@ -54,7 +54,7 @@ class Stack{
         Stack(){
             this->size = 0;
             this->top = NULL;
-        }
+        };
 
         /**
          * Insert one element in the end of the stack;
