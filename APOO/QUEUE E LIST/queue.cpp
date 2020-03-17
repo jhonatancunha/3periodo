@@ -12,7 +12,7 @@ class Node{
         Node(){
             this->value = 0;
             this->next = NULL;
-        }
+        };
 
         /**
         * Used to get the next element of the queue;
