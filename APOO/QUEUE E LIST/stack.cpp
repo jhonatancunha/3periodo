@@ -8,14 +8,13 @@ class Node{
         Node* next;
 
     public:
-
         Node(){
             this->value = 0;
             this->next = NULL;
         }
 
         /**
-        * Used to get the next element of the queue;
+        * Used to get the next element of the stack;
         * @return: the adress of the next node;
         */
         Node* getNext(){
@@ -23,7 +22,7 @@ class Node{
         };
         
         /**
-        * Used to set the next element of the queue;
+        * Used to set the next element of the stack;
         */
         void setNext(Node* node){
             next = node;
@@ -45,41 +44,37 @@ class Node{
         }    
 };
 
-class Queue{
+class Stack{
     private:
-        int size;
-        Node* first;
-        Node* last;
+        int size = 0;
+        Node* top;
 
     public:
 
-        Queue(){
+        Stack(){
             this->size = 0;
-            this->first = NULL;
-            this->last = NULL;
+            this->top = NULL;
         }
 
         /**
-         * Insert one element in the end of the queue;
+         * Insert one element in the end of the stack;
          * @param value: the value that you want to insert;
          */
         void push(int value){
             Node* newElement = new Node();
             newElement->setValue(value);
-            
-            if(size == 0){
-                first = newElement;
-            }else{
-                last->setNext(newElement);
+
+            if(size != 0){
+                newElement->setNext(top);
             }
 
-            last = newElement;
-            size++;
+            top = newElement;;
+            size++;      
         };
 
         
         /**
-         * Remove the first node that was inserted in the queue;
+         * Remove the first node that was inserted in the stack;
          */
         int pop(){
             int number;
@@ -87,16 +82,16 @@ class Queue{
                 if(size < 1){
                     throw -1;
                 }else{
-                   number = first->getValue();
-                   Node* objDeleted = first;
-                   first = first->getNext();
+                   number = top->getValue();
+                   Node* objDeleted = top;
+                   top = top->getNext();
 
                    delete objDeleted;
                    size--;
             }
             }catch(int error){
                 if(error == -1){
-                    cout << "Queue is Empty!" << endl;
+                    cout << "Stack is Empty!" << endl;
                     return 0;
                 }
             }
@@ -104,23 +99,23 @@ class Queue{
         };
 
         /**
-        * Used to know how many elements are in the queue;
+        * Used to know how many elements are in the stack;
         * @return: size of the queue;
         */
-        int sizeOf(){
+        int sizeOfStack(){
             return size;
         }; 
 
         /**
-        * Print all the elements of the queue;
+        * Print all the elements of the stack;
         */
         void imprimir(){
             if(size == 0){
-                cout <<  "Queue is Empty!" << endl;
+                cout << "Stack is Empty!" << endl;
                 return;
             }
 
-            for(Node* aux = first; aux != NULL; aux = aux->getNext()) printf("%d\t",aux->getValue());
+            for(Node* aux = top; aux != NULL; aux = aux->getNext()) printf("%d\t",aux->getValue());
 
             printf("\n");
             
@@ -131,10 +126,10 @@ class Queue{
 
 
 int main(){
-    Queue* f1 = new Queue();
+    Stack* f1 = new Stack();
 
 
-    cout << f1->sizeOf() << endl;
+    cout << f1->sizeOfStack() << endl;
     f1->push(50);
     f1->imprimir();
 

@@ -9,6 +9,13 @@ class Node{
         Node* before;
 
     public:
+
+        Node(){
+            this->value = 0;
+            this->next = NULL;
+            this->before = NULL;
+        }
+
         /**
         * Used to get the next element of the list;
         * @return: the adress of the next node;
@@ -50,7 +57,7 @@ class Node{
 
 class List{
     private:
-        int size = 0;
+        int size;
         Node* start;
         Node* end;
 
@@ -84,6 +91,12 @@ class List{
 
     public:
 
+        List(){
+            this->size = 0;
+            this->end = NULL;
+            this->start = NULL;
+        }
+
         /**
         * Insert one element in the position that you want of the list;
         * @param value: the value that you want to insert;
@@ -95,10 +108,8 @@ class List{
                 return;
             } 
 
-            Node* newNode = new Node;
+            Node* newNode = new Node();
             newNode->setValue(value);
-            newNode->setNext(NULL);
-            newNode->setBefore(NULL);
 
             if(size == 0){
                 cout << "EMPTY LIST, THE VALUE WILL BE INSERTED IN THE '0' POSITION!" << endl;
@@ -169,7 +180,7 @@ class List{
         * Used to know how many elements are in the list;
         * @return: size of the list;
         */
-        int size(){
+        int sizeOf(){
             return size;
         }; 
 
@@ -193,10 +204,10 @@ class List{
 
 
 int main(){
-    List* l1 = new List;
+    List* l1 = new List();
 
 
-    // cout << l1->size() << endl;
+    // cout << l1->sizeOf() << endl;
     l1->push(0,0);
     l1->imprimir();
 
