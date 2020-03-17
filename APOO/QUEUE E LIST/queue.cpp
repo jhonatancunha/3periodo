@@ -42,7 +42,7 @@ class Node{
         */
         void setValue(int n){
             value = n;
-        }    
+        };
 };
 
 class Queue{
