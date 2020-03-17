@@ -29,7 +29,7 @@ class Node{
         */
         void setNext(Node* node){
             next = node;
-        }
+        };
 
         Node* getBefore(){
             return before;
@@ -37,7 +37,7 @@ class Node{
         
         void setBefore(Node* node){
             before = node;
-        }
+        };
 
         /**
         * Used to get the value of one element that you want to know;
