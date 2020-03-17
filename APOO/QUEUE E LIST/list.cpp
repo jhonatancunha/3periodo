@@ -14,7 +14,7 @@ class Node{
             this->value = 0;
             this->next = NULL;
             this->before = NULL;
-        }
+        };
 
         /**
         * Used to get the next element of the list;
