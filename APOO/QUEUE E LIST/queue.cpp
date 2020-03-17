@@ -57,7 +57,7 @@ class Queue{
             this->size = 0;
             this->first = NULL;
             this->last = NULL;
-        }
+        };
 
         /**
          * Insert one element in the end of the queue;
