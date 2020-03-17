@@ -46,7 +46,7 @@ class Node{
 
 class Stack{
     private:
-        int size = 0;
+        int size;
         Node* top;
 
     public:
