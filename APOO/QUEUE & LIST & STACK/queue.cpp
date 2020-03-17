@@ -27,7 +27,7 @@ class Node{
         */
         void setNext(Node* node){
             next = node;
-        }
+        };
 
         /**
         * Used to get the value of one element that you want to know;
