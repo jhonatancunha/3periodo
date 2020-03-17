@@ -70,7 +70,7 @@ class List{
             }
 
             return aux;
-        }
+        };
 
         Node* findEnd(int pos){
             Node* aux = end;
@@ -80,7 +80,7 @@ class List{
             }
 
             return aux;
-        }
+        };
 
         Node* findPosition(int pos){
             int middle = size/2;
@@ -95,7 +95,7 @@ class List{
             this->size = 0;
             this->end = NULL;
             this->start = NULL;
-        }
+        };
 
         /**
         * Insert one element in the position that you want of the list;
