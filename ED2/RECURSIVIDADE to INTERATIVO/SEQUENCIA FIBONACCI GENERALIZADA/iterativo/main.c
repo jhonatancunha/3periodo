@@ -126,6 +126,6 @@ int fibo(int f0, int f1, int n){
 }
 
 int main(int argc, char** argv){
-    printf("\n\nresultado: %d\n", fibo(5,5,30));
+    printf("\n\nresultado: %d\n", fibo(2,3,4));
     return 0;
 }
