@@ -23,7 +23,7 @@ typedef struct{
 //VERIFICA SE ID ESTA CADASTRADO NA MEMORIA
 int saved(int id, Memoization* saved){
     Value* aux = saved->first;
-    for(int i = 0; i < saved->qtde; i++){
+    for(int nLeftParent = 0; nLeftParent < saved->qtde; nLeftParent++){
         if(id == aux->id){
             return 1;
         }
@@ -36,7 +36,7 @@ int saved(int id, Memoization* saved){
 //RETORNA VALOR REFERENTE AO ID PASSADO
 int getValue(int id, Memoization* saved){
     Value* aux = saved->first;
-    for(int i = 0; i < saved->qtde; i++){
+    for(int nLeftParent = 0; nLeftParent < saved->qtde; nLeftParent++){
         if(id == aux->id){
             return aux->value;
         }
@@ -73,48 +73,47 @@ void putValue(int id, int value, Memoization* saved){
 ////////////////////////////////////
 ////////////////////////////////////
 int fibo(int f0, int f1, int n){
-    Memoization* save = malloc(sizeof(Memoization));
+    Memoization* memory = malloc(sizeof(Memoization));
 
-    int soma = f1;
-    int i;
-    int j;
+    int resultValue = f1;
 
-    for(i = 1; i <= n; i++){
-        for(j = i; j >= 0; j -= 2){
-                int auxJ = j;
-                int savedJ = auxJ;
+    for(int nLeftParent = 1; nLeftParent <= n; nLeftParent++){
+        for(int nRightParent = nLeftParent; nRightParent >= 0; nRightParent -= 2){
+                int childNRight = nRightParent;//AUXILIAR
+                int savedRightChild = childNRight;//SAVED TO COMPARE
                 
 
-                while(auxJ >= 0){
-                    auxJ -= 2;
+                while(childNRight >= 0){
+                    childNRight -= 2;
+
                     ////////////////////////////////////////
                     ////FUNÇAO AUXILIAR PARA MEMOIZAÇAO/////
                     ////////////////////////////////////////
-                        if(saved(auxJ, save)){
-                            soma += getValue(auxJ, save);
+                        if(saved(childNRight, memory)){
+                            resultValue += getValue(childNRight, memory);
                             break;    
                         }
                     //////////////////////////////////////
                     //////////////////////////////////////
 
-                    if(auxJ == 1) soma += f1;
-                    else if(auxJ == 0) soma += f0;
-                    int auxI = auxJ-1;
+                    if(childNRight == 1) resultValue += f1;
+                    else if(childNRight == 0) resultValue += f0;
+                    int childNLeft = childNRight-1;
 
-                    if(auxI > 1){
-                        i = auxI+1;
-                        j = auxJ;
+                    if(childNLeft > 1){
+                        nLeftParent = childNLeft+1;
+                        nRightParent = childNRight;
                         break;
-                    }else if(auxI == 1){
-                        soma += f1;
+                    }else if(childNLeft == 1){
+                        resultValue += f1;
                     }           
                 }
 
                 ////////////////////////////////////////
                 ////FUNÇAO AUXILIAR PARA MEMOIZAÇAO/////
                 ////////////////////////////////////////
-                    if(!saved(savedJ, save)){
-                        putValue(savedJ, soma, save);
+                    if(!saved(savedRightChild, memory)){
+                        putValue(savedRightChild, resultValue, memory);
                     }
                 //////////////////////////////////////
                 //////////////////////////////////////
@@ -122,7 +121,7 @@ int fibo(int f0, int f1, int n){
             break;
         }
     }
-    return soma;
+    return resultValue;
 }
 
 int main(int argc, char** argv){
