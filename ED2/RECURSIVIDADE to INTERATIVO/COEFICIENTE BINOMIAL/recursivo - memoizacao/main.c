@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /////////////////////////////////////////////
 //////////////////UTFPR//////////////////////
 ///////USADO PARA MEMOIZAÇAO DO CODIGO///////
@@ -10,7 +9,8 @@
 ///MODIFICADO MEMOIZATION PARA ESTE CODIGO///
 /////////////////////////////////////////////
 typedef struct value{
-    int id;
+    int id0;
+    int id1;
     int value;
     struct value* prox;
 }Value;
@@ -23,10 +23,10 @@ struct Memoization{
  
 
 //VERIFICA SE ID ESTA CADASTRADO NA MEMORIA
-int saved(int id, struct Memoization* saved){
+int saved(int id0,int id1, struct Memoization* saved){
     Value* aux = saved->first;
     for(int i = 0; i < saved->qtde; i++){
-        if(id == aux->id){
+        if((id0 == aux->id0) && (id1 == aux->id1)){
             return 1;
         }
         aux = aux->prox;
@@ -36,10 +36,10 @@ int saved(int id, struct Memoization* saved){
 }
 
 //RETORNA VALOR REFERENTE AO ID PASSADO
-int getValue(int id, struct Memoization* saved){
+int getValue(int id0,int id1, struct Memoization* saved){
     Value* aux = saved->first;
     for(int i = 0; i < saved->qtde; i++){
-        if(id == aux->id){
+        if((id0 == aux->id0) && (id1 == aux->id1)){
             return aux->value;
         }
         aux = aux->prox;
@@ -49,9 +49,10 @@ int getValue(int id, struct Memoization* saved){
 }
 
 //CADASTRA VALOR E ID NA MEMORIA
-void putValue(int id, int value, struct Memoization* saved){
+void putValue(int id0,int id1, int value, struct Memoization* saved){
     Value* new = malloc(sizeof(Value));
-    new->id = id;
+    new->id0 = id0;
+    new->id1 = id1;
     new->value = value;
 
 
@@ -69,37 +70,36 @@ void putValue(int id, int value, struct Memoization* saved){
 
 //#########################################################################//
 
-int soma = 0;
+int result;
 
-int fibo(int f0, int f1, int n){
-
-    ////////////////////////////////////////
-    ////FUNÇAO AUXILIAR PARA MEMOIZAÇAO/////
-    ////////////////////////////////////////
-        if(saved(n, &memoization)){
-            return getValue(n, &memoization);
-        }
-    //////////////////////////////////////
-    //////////////////////////////////////
-    
-
-    if(n == 0) return f0;
-    else if(n == 1) return f1;
-    else if(n > 1) soma = fibo(f0,f1,n-1) + fibo(f0,f1,n-2);
+int c(int n, int k){
 
     
     ////////////////////////////////////////
     ////FUNÇAO AUXILIAR PARA MEMOIZAÇAO/////
     ////////////////////////////////////////
-        if(!saved(n, &memoization)){
-            putValue(n, soma, &memoization);
+        if(saved(n,k, &memoization)){
+            return getValue(n,k, &memoization);
         }
     //////////////////////////////////////
     //////////////////////////////////////
-    return soma;
+
+    if(k > n) return 0;
+    else if(k == 1) return n;
+    else result =  c(n-1, k) + c(n-1, k-1);
+
+    ////////////////////////////////////////
+    ////FUNÇAO AUXILIAR PARA MEMOIZAÇAO/////
+    ////////////////////////////////////////
+        if(!saved(n,k, &memoization)){
+            putValue(n,k, result, &memoization);
+        }
+    //////////////////////////////////////
+    //////////////////////////////////////
+    return result;
 }
 
 int main(int argc, char** argv){
-    printf("%d\n", fibo(2,3,4));
+    printf("%d\n", c(30,10));
     return 0;
 }
