@@ -3,7 +3,6 @@
 #include <limits.h>
 
 void merge(int *v, int start, int middle, int end){
-
   int i, j, k;
   int sizeOfFirstSubVector = middle - start + 1;
   int sizeOfSecondSubVector = end - middle;
@@ -42,12 +41,6 @@ void mergeSort(int *v, int left, int right){
     mergeSort(v, middle + 1, right);
     merge(v, left, middle, right);  
   }
-}
-
-void troca(int *vetor, int bigger, int lastPosition){
-  int n1 = vetor[lastPosition];
-  vetor[lastPosition] = vetor[bigger];
-  vetor[bigger] = n1;
 }
 
 // QUICK SORT
