@@ -1,34 +1,21 @@
 #include <stdio.h>
+#include "heapSort.h"
 
-void troca(int *v, int pos1, int pos2){
-  int n1 = vetor[pos2];
-  vetor[pos2] = vetor[pos1];
-  vetor[pos1] = n1;
-}
-
-int esq(i) return 2*i+1;
-
-int dir(i) return esq(i)+1;
-
-void maxHeapify(int *v, int i, int sizeOfHeap){
-  int e, d;
-  int maior = i;
-  e = esq(i);
-  d = dir(i);
-  if((e < sizeOfHeap) && (v[e] > v[i])){
-    maior = e;
+void print(int *v, int size){
+  printf("==============\n");
+  for(int i = 0; i < size; i++){
+    printf("%d ", v[i]);
+    fflush(stdout);
   }
-  if((d < sizeOfHeap) && (v[d] > v[maior])){
-    maior = d;
-  }
-
-  if(maior != i){
-    troca(v, i, maior)
-  }
-
-  maxHeapify(v, maior, sizeOfHeap);
+  printf("\n==============\n");
 }
 
 int main(int argc, char** argv){
+  int heapVetor[8] = {6, 12, 7, 9, 10, 20, 5 ,14};
+  print(heapVetor, 8);
+
+  buildMaxHeap(heapVetor, 8);
+
+  print(heapVetor, 8);
   return 0;
 }
