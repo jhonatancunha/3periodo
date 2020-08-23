@@ -34,7 +34,7 @@ int FP_MIN_inicio(int *fp, int n){
   return fp[0];
 }
 
-int FP_MIN_remover_maximo(int* fp, int n){
+int FP_MIN_remover(int* fp, int n){
   troca(fp, 0, n-1);
   minHeapify(fp, 0, n-1);
   return n-1;

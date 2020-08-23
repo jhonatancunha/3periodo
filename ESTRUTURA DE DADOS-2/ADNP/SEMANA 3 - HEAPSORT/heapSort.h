@@ -8,7 +8,7 @@ int pai(int i);
 // FILA DE PRIORIDADE
 // MIN HEAP
 int FP_MIN_inicio(int *fp, int n);
-int FP_MIN_remover_maximo(int* fp, int n);
+int FP_MIN_remover(int* fp, int n);
 int FP_MIN_inserir(int* fp, int n, int x);
 
 void troca(int *vetor, int pos1, int pos2);
