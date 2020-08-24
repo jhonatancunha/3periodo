@@ -54,6 +54,7 @@ int FP_MIN_inserir(int* fp, int n, int x){
 }
 
 
+// AUXILIARES
 int pai(int i){
   return (i-1)/2;
 }

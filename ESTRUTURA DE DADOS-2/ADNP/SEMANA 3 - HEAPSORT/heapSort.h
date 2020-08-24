@@ -11,6 +11,7 @@ int FP_MIN_inicio(int *fp, int n);
 int FP_MIN_remover(int* fp, int n);
 int FP_MIN_inserir(int* fp, int n, int x);
 
+// AUXILIARES
 void troca(int *vetor, int pos1, int pos2);
 int esq(int i);
 int dir(int i);

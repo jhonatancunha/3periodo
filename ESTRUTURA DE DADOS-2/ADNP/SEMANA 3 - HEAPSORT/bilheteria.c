@@ -4,82 +4,96 @@
 #include "heapSort.h"
 
 
-float obterDados() {
-  FILE* arquivo = fopen("ingressos.txt", "r");   
+float obterLucro() {
+  FILE* arquivo = fopen("case7.txt", "r");   
   if(arquivo == NULL) return -1;
 
   int primeiraLinha[2];
   int *assentos = (int*) calloc(1000, sizeof(int));
-  char *numeroParcial = (char*) calloc(1000, sizeof(char));
-  int assentosOcupados = 0;
+  char *algarismo = (char*) calloc(1000, sizeof(char));
+  int fileirasDisponiveis = 0;
 
 
   // VARIAVEIS AUXILIARES
-  char aux = fgetc(arquivo);
+  char caractereAuxiliar = fgetc(arquivo);
   int i = 0;
   int j = 0;
 
-  while(aux != '\n'){
-    if(aux != ' ') numeroParcial[i++] = aux;
-    aux = fgetc(arquivo);
+  // PRIMEIRA LINHA
+  while(caractereAuxiliar != '\n'){
+    if(caractereAuxiliar != ' ') algarismo[i++] = caractereAuxiliar;
+    caractereAuxiliar = fgetc(arquivo);
 
-    if(aux == ' ' || aux == '\n'){
-      if(atoi(numeroParcial) > 1000) return -1;
+  //VERIFICA SE EXISTE MAIS ALGUM ALGARISMO ANTES DE ADICIONAR NA FILA
+    if(caractereAuxiliar == ' ' || caractereAuxiliar == '\n'){
+      if(atoi(algarismo) > 1000 || atoi(algarismo) < 1){
+        printf("Erro na primeira linha: numero > 1000 ou numero < 1\n");
+        printf("valor: %d\n", atoi(algarismo));
+        return -1;
+      }
 
-      primeiraLinha[j++] = atoi(numeroParcial);
-      free(numeroParcial);
-      numeroParcial = (char*) calloc(1000, sizeof(char));
+      primeiraLinha[j++] = atoi(algarismo);
+      free(algarismo);
+      algarismo = (char*) calloc(1000, sizeof(char));
       i = 0;
     }
   };
 
-  while(aux != EOF){
-    if(aux != ' ' && aux != '\n') numeroParcial[i++] = aux;
-    aux = fgetc(arquivo);
+  int somaCadeiras = 0;
+  // SEGUNDA LINHA
+  while(caractereAuxiliar != EOF){
+    if(caractereAuxiliar != ' ' && caractereAuxiliar != '\n') algarismo[i++] = caractereAuxiliar;
+    caractereAuxiliar = fgetc(arquivo);
     
-    //verificar se existe mais algarismos no numero
-    if(aux == ' ' || aux == EOF){
-      if(atoi(numeroParcial) > 1000) return -1;
-
-      assentosOcupados = FP_MIN_inserir(assentos, assentosOcupados, atoi(numeroParcial));
-      free(numeroParcial);
-      numeroParcial = (char*) calloc(1000, sizeof(char));
+    //VERIFICA SE EXISTE MAIS ALGUM ALGARISMO ANTES DE ADICIONAR NA FILA
+    if(caractereAuxiliar == ' ' || caractereAuxiliar == EOF){
+      if(atoi(algarismo) > 1000 || atoi(algarismo) < 1){
+        printf("Erro na segunda linha: numero > 1000 ou numero < 1\n");
+        printf("valor: %d\n", atoi(algarismo));
+        return -1;
+      }
+      somaCadeiras += atoi(algarismo);
+      fileirasDisponiveis = FP_MIN_inserir(assentos, fileirasDisponiveis, atoi(algarismo));
+      free(algarismo);
+      algarismo = (char*) calloc(1000, sizeof(char));
       i = 0;
     }
   };
   
-  if(primeiraLinha[0] < assentosOcupados){
+  // VERIFICA SE A QUANTIDADE DE FILEIRAS INFORMADAS NA PRIMEIRA LINHA
+  // CONDIZ COM A QUANTIADEDE INFORMADA NA SEGUNDA
+  if(primeiraLinha[0] < fileirasDisponiveis){
+    printf("Erro primeira linha: numero de fileiras menor que indicado na segunda linha.\n");
+    printf("%d < %d\n", primeiraLinha[0], fileirasDisponiveis);
+    return -1;
+  }
+  
+  // SE A QUANTIDADE DE CADEIRAS DISPONIVEIS FOR MAIOR QUE A QUANTIDADE DE PESSOAS RETORNA ERRO
+  if(somaCadeiras < primeiraLinha[1]){
+    printf("Erro: quantidade de pessoas ultrapassa quantiaded de assentos disponiveis.\n");
+    printf("%d < %d\n", somaCadeiras, primeiraLinha[1]);
     return -1;
   }
  
-  print(assentos, assentosOcupados);
   fclose(arquivo);
-  return calculoLucro(primeiraLinha[1], assentos, assentosOcupados);
+  return calculoLucro(primeiraLinha[1], assentos, fileirasDisponiveis);
 }
 
-float calculoLucro(int pessoasFila, int *assentos, int assentosOcupados){
+float calculoLucro(int pessoasFila, int *assentos, int fileirasDisponiveis){
   float lucroTotal = 0;
-  while(assentosOcupados > 0){
-    int minimo = FP_MIN_inicio(assentos, assentosOcupados);
-    assentosOcupados = FP_MIN_remover(assentos, assentosOcupados);
 
-    while(minimo > 0 && pessoasFila > 0){
-      int aux = 100 + (100/minimo);
+  while(fileirasDisponiveis > 0){
+    int fileiraMenosAssentos = FP_MIN_inicio(assentos, fileirasDisponiveis);
+    fileirasDisponiveis = FP_MIN_remover(assentos, fileirasDisponiveis);
+
+    while(fileiraMenosAssentos > 0 && pessoasFila > 0){
+      int aux = 100 + (100/fileiraMenosAssentos);
       lucroTotal += aux;
-      minimo--;
+      fileiraMenosAssentos--;
       pessoasFila--;
     }
   }
 
 
   return lucroTotal;
-}
-
-void print(int *v, int size){
-  printf("==============\n");
-  for(int i = 0; i < size; i++){
-    printf("%d ", v[i]);
-    fflush(stdout);
-  }
-  printf("\n==============\n");
 }
