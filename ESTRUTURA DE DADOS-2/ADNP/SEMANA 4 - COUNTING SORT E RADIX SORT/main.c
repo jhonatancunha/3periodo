@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "countingSort.h"
+#include "radixSort.h"
 
 Info* vetorAleatorio(int size){
     Info *dados = calloc(size, sizeof(Info));
@@ -15,20 +16,28 @@ Info* vetorAleatorio(int size){
     return dados;
 } 
 
-void print(Info *vetor, int size){
+void print(int *vetor, int size){
   for(int i = 0; i < size; i++){
-    printf("VALOR: %d - CHAVE: %d\n", vetor[i].dado, vetor[i].chave);
+    printf("%d ", vetor[i]);
   }
+
+  printf("\n\n");
 }
 
 
 int main(int argc, char** argv){
-    Info *vetor = vetorAleatorio(11);
+    // Info *vetor = vetorAleatorio(11);
     
-    print(vetor, 11);
-    countingSort(vetor, 11);
+    // print(vetor, 11);
+    // countingSort(vetor, 11);
 
-    printf("\n\n");
-    print(vetor, 11);
+    // printf("\n\n");
+    // print(vetor, 11);
+
+    int size = 9;
+    int v[9] = {104, 114, 134, 34, 204, 107, 77, 89, 99};
+    print(v, size);
+    radixSort(v, size);
+    print(v, size);
     return 0;
 }

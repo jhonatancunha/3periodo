@@ -2,19 +2,6 @@
 #include <string.h>
 #include "countingSort.h"
 
-
-int max(Info *v, int size){
-  int maior = v[0].chave;
-
-  for(int i = 1; i < size; i++){
-    if(maior < v[i].chave){
-      maior = v[i].chave;
-    }
-  }
-
-  return maior;
-}
-
 void countingSort(Info *v, int size){
   int k = max(v, size);
   int *c = calloc(k+1, sizeof(int));
@@ -44,4 +31,16 @@ void countingSort(Info *v, int size){
 
   free(c);
   free(s);
+}
+
+int max(Info *v, int size){
+  int maior = v[0].chave;
+
+  for(int i = 1; i < size; i++){
+    if(maior < v[i].chave){
+      maior = v[i].chave;
+    }
+  }
+
+  return maior;
 }
