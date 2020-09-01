@@ -3,11 +3,9 @@
 #include <stdio.h>
 #include "radixSort.h"
 
-void counting_sort_bin(int *v, int size, int pos, int base, int *temp){
+void counting_sort_bin(int *v, int size, int pos, int *temp){
   int i, t, acumulador = 0;
-  int  c[base];
-  for(int i = 0; i < base; i++) c[i] = 0;
-
+  int  c[2] = {0, 0};
 
   #define DIGIT_BIN(X) (X >> pos) & 1
 
@@ -16,11 +14,9 @@ void counting_sort_bin(int *v, int size, int pos, int base, int *temp){
   }
 
   // SOMA DE PREFIXO
-  for(i = 0; i < base; i++){
-    t = c[i];
-    c[i] = acumulador;
-    acumulador += t;
-  }
+  c[1] = c[0];
+  c[0] = 0;
+
 
   for(i = 0; i < size; i++){
     int chave = DIGIT_BIN(v[i]);
@@ -38,7 +34,7 @@ void radixSort_bin(int* v, int size){
   int *temp = malloc(sizeof(int) * size);
   int pos = 0;
   while(k > 0){
-    counting_sort_bin(v, size, pos, 2, temp);
+    counting_sort_bin(v, size, pos, temp);
     k = k/2;
     pos++;
   }

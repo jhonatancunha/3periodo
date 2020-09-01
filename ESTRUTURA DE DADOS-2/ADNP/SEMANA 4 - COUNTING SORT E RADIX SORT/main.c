@@ -28,21 +28,20 @@ void print(int *vetor, int size){
 
 
 int main(int argc, char** argv){
-
     clock_t t;
+    int n = 10;
 
-    int n = 500000;
     int *v = random_vector(n, n*100, 0);
-    
     t = clock();
     radixSort_bin(v, n);
     t = clock() - t;
     printf("It took %f miliseconds for radixSort base 2\n", ((float)t/CLOCKS_PER_SEC));
-
+   
     v = random_vector(n, n*100, 0);
     t = clock();
     radixSort(v, n);
     t = clock() - t;
     printf("It took %f miliseconds for radixSort base 10\n", ((float)t/CLOCKS_PER_SEC));
+
     return 0;
 }
