@@ -11,5 +11,10 @@ int main(int argc, char** argv){
     }else{
         printf("Valor nao encontrado!\n");
     }
+
+    // int *v2 = randomVectorUniqueElems(10, 0);
+    int v2[4] = {0, 1, 4, 5};
+    printf("%d", SelectionMinK(v2, 4, 3));
+    
     return 0;
 }
