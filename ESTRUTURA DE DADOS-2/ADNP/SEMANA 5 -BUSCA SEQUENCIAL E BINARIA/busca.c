@@ -109,41 +109,45 @@ int dir(int i){
 }
 
 int HeapMinK(int *v, int n, int k){
-  heapSort(v, n);
-  return v[k-1];
+ int j = k-1;
+ buildMinHeap(v, n);
+ 
+ while(j > 0){
+  troca(v, 0, n-1);
+  buildMinHeap(v, --n);
+  j--;
+     
+ }
+  return v[0];
 }
 
 void heapSort(int *v, int n){
-  buildMaxHeap(v, n);
-  for(int i = n-1; i > 0; i--){
-    troca(v, 0, i);
-    buildMaxHeap(v, i);
-  }
+  
 }
 
-void buildMaxHeap(int *v, int n){
+void buildMinHeap(int *v, int n){
   for(int i = n/2; i >= 0; i--){
-    maxHeapify(v, i, n);
+    minHeapify(v, i, n);
   }
 }
 
-void maxHeapify(int *v, int i, int th){
+void minHeapify(int *v, int i, int th){
   int e, d;
-  int maior = i;
+  int menor = i;
   e = esq(i);
   d = dir(i);
 
-  if(e < th && v[e] > v[i]){
-    maior = e;
+  if(e < th && v[e] < v[i]){
+    menor = e;
   }
 
-  if(d < th && v[d] > v[maior]){
-    maior = d;
+  if(d < th && v[d] < v[menor]){
+    menor = d;
   }
 
-  if(maior != i){
-    troca(v, i, maior);
-    maxHeapify(v, maior, th);
+  if(menor != i){
+    troca(v, i, menor);
+    minHeapify(v, menor, th);
   }
 }
 
