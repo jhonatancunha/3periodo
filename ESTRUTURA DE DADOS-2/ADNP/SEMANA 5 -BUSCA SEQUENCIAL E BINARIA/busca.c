@@ -72,6 +72,80 @@ int encontreMinK(int *v, int i, int tamanho, int indiceMenor){
   return indiceMenor;
 }
 
+int QuickMinK(int *v, int e, int d, int k){
+  int q;
+  if(e < d){
+    q = partition(v, e, d);
+    if(q == k) return v[k];
+    if(q < k) QuickMinK(v, e, q-1, k);
+    if(q > k) QuickMinK(v, q+1, d, k);
+    
+    
+  }
+
+  return v[k-1];
+}
+
+int partition(int *v, int inicio, int fim){
+  int minK = encontreMinK(v, inicio, fim, inicio);
+  int pivo = v[minK];
+  int i = inicio-1;
+
+  for(int j = inicio; j < fim; j++){
+    if(v[j] <= pivo){
+      i++;
+      troca(v, i, j);
+    }
+  }
+  return i;
+}
+
+
+int esq(int i){
+  return (2*i)+1;  
+}
+int dir(int i){
+  return esq(i)+1;
+}
+
+int HeapMinK(int *v, int n, int k){
+  heapSort(v, n);
+  return v[k-1];
+}
+
+void heapSort(int *v, int n){
+  buildMaxHeap(v, n);
+  for(int i = n-1; i > 0; i--){
+    troca(v, 0, i);
+    buildMaxHeap(v, i);
+  }
+}
+
+void buildMaxHeap(int *v, int n){
+  for(int i = n/2; i >= 0; i--){
+    maxHeapify(v, i, n);
+  }
+}
+
+void maxHeapify(int *v, int i, int th){
+  int e, d;
+  int maior = i;
+  e = esq(i);
+  d = dir(i);
+
+  if(e < th && v[e] > v[i]){
+    maior = e;
+  }
+
+  if(d < th && v[d] > v[maior]){
+    maior = d;
+  }
+
+  if(maior != i){
+    troca(v, i, maior);
+    maxHeapify(v, maior, th);
+  }
+}
 
 int* randomVectorUniqueElems(int n, int seed){
   int* v = (int*) calloc(n, sizeof(int));
