@@ -11,8 +11,8 @@ int QuickMinK(int *v, int e, int d, int k);
 
 int esq(int i);
 int dir(int i);
-void maxHeapify(int *v, int i, int th);
-void buildMaxHeap(int *v, int n);
+void minHeapify(int *v, int i, int th);
+void buildMinHeap(int *v, int n);
 void heapSort(int *v, int n);
 int HeapMinK(int *v, int n, int k);
 
