@@ -76,28 +76,27 @@ int QuickMinK(int *v, int e, int d, int k){
   int q;
   if(e < d){
     q = partition(v, e, d);
-    if(q == k) return v[k];
-    if(q < k) QuickMinK(v, e, q-1, k);
-    if(q > k) QuickMinK(v, q+1, d, k);
     
-    
+    if(q == k) return v[k-1];
+    if(q < k) return QuickMinK(v, q+1, d, k);
+    if(q > k) return QuickMinK(v, e, q-1, k);
   }
 
   return v[k-1];
 }
 
 int partition(int *v, int inicio, int fim){
-  int minK = encontreMinK(v, inicio, fim, inicio);
-  int pivo = v[minK];
+  int pivo = v[fim];
   int i = inicio-1;
-
   for(int j = inicio; j < fim; j++){
     if(v[j] <= pivo){
       i++;
       troca(v, i, j);
     }
   }
-  return i;
+  
+  troca(v, i+1, fim);
+  return i+1;
 }
 
 
