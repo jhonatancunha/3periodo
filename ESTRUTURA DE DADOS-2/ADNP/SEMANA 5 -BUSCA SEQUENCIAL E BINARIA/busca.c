@@ -10,6 +10,19 @@ int busca_seq(int *v, int size, int x){
   return -1;
 }
 
+int max(int *v, int n){
+  int maior = 0;
+
+  for(int i = 1; i < n; i++){
+    if(v[maior] < v[i]){
+      maior = i;
+    }
+  }
+  
+  return maior;
+  
+}
+
 // int busca_bin(int*v, int size, int x){
 //   int meio = (size-1)/2;
 
@@ -48,6 +61,9 @@ int busca_bin(int*vetor, int limiteEsquerdo, int limiteDireito, int valor){
 }
 
 int SelectionMinK(int *v, int n, int k){
+
+  if(k > n) return v[max(v, n)];
+
   int *copia = calloc(n, sizeof(int));
   int j = k;
   memcpy(copia, v, sizeof(int) * n);
@@ -73,16 +89,19 @@ int encontreMinK(int *v, int i, int tamanho, int indiceMenor){
 }
 
 int QuickMinK(int *v, int e, int d, int k){
+  int kAux = k-1;
+  
+  if(kAux > d) return v[max(v, d+1)];
+  
   int q;
   if(e < d){
     q = partition(v, e, d);
     
-    if(q == k) return v[k-1];
-    if(q < k) return QuickMinK(v, q+1, d, k);
-    if(q > k) return QuickMinK(v, e, q-1, k);
+    if(q == kAux) return v[k-1];
+    if(q < kAux) return QuickMinK(v, q+1, d, k);
+    if(q > kAux) return QuickMinK(v, e, q-1, k);
   }
-
-  return v[k-1];
+  return v[kAux];
 }
 
 int partition(int *v, int inicio, int fim){
@@ -109,6 +128,8 @@ int dir(int i){
 
 int HeapMinK(int *v, int n, int k){
  int j = k-1;
+ if(j > n) return v[max(v, n)];
+
  buildMinHeap(v, n);
  
  while(j > 0){
@@ -120,9 +141,6 @@ int HeapMinK(int *v, int n, int k){
   return v[0];
 }
 
-void heapSort(int *v, int n){
-  
-}
 
 void buildMinHeap(int *v, int n){
   for(int i = n/2; i >= 0; i--){

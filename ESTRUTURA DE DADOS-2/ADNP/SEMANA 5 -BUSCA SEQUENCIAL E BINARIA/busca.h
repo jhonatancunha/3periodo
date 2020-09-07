@@ -13,8 +13,9 @@ int esq(int i);
 int dir(int i);
 void minHeapify(int *v, int i, int th);
 void buildMinHeap(int *v, int n);
-void heapSort(int *v, int n);
 int HeapMinK(int *v, int n, int k);
+
+int max(int *v, int n);
 
 // GERAR VETOR ALETAORIO SEM REPETIÇÃO
 int* randomVectorUniqueElems(int n, int seed);
