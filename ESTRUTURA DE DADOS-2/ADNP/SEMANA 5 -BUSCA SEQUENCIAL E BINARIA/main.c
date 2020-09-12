@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <time.h>
 #include "busca.h"
+
 
 void print(int *v, int n){
   for (int i = 0; i < n; i++){
@@ -8,20 +10,43 @@ void print(int *v, int n){
 }
 
 int main (int argc, char **argv){
-  int v[5] = { 3, 1, 26, 2, 55};
-  // int *v2 = randomVectorUniqueElems(10, 0);
-  // int v2[4] = {0, 1, 4, 5};
-  // printf("%d", SelectionMinK(v2, 4, 3));
- 
-    print(v, 5);
-    printf("\n");
+  clock_t t;
 
+  int n = 500000;
+  int k = n;
 
-  // printf ("%d\n", SelectionMinK(v, 5, 6));
-  //  printf ("%d\n", QuickMinK(v, 0, 4, 5));
-  printf ("%d\n", HeapMinK(v, 5, 0));
+  int *selection = randomVectorUniqueElems(n, 42);
+  int *quick = randomVectorUniqueElems(n, 42);
+  int *heap = randomVectorUniqueElems(n, 42);
   
-  print(v, 5);
-  printf("\n");
+   printf("selection: %d\n", selection[k-1]);
+  printf("quick: %d\n", quick[k-1]);
+   printf("heap: %d\n", heap[k-1]);
+  printf(" N = %d , K = %d\n", n, k);
+
+  t = clock();
+  printf("==================\n");
+  printf("SelectionMinK: %d-esima posicaoo: ", k);
+  printf ("%d\n", SelectionMinK(selection, n, k));
+  t = clock() - t;
+  printf("Levou %f segundos para executar!\n", (float)t/(CLOCKS_PER_SEC));
+  printf("==================\n\n");
+
+
+  t = clock();
+  printf("QuickMinK: %d-esima posicaoo: ", k);
+  printf ("%d\n", QuickMinK(quick, 0, n-1, k));
+  t = clock() - t;
+  printf("Levou %f segundos para executar!\n", (float)t/(CLOCKS_PER_SEC));
+  printf("==================\n\n");
+
+
+  t = clock();
+  printf("HeapMinK: %d-esima posicaoo: ", k);
+  printf ("%d\n", HeapMinK(heap, n, k));
+  t = clock() - t;
+  printf("Levou %f segundos para executar!\n", (float)t/(CLOCKS_PER_SEC));
+  printf("==================\n");
+
   return 0;
 }
