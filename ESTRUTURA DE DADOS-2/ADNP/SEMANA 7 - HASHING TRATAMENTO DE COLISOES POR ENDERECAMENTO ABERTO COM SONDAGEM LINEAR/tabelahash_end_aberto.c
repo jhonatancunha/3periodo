@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <limits.h>
 #include <stdio.h>
 #include "tabelahash_end_aberto.h"
 
@@ -59,13 +60,58 @@ void THEA_Remover(THEA* TH, int chave){
 void THEA_Print(THEA *TH){
   for(int i = 0; i < TH->m; i++){
     char estado;    
-    if(TH->TH[i].estado == OCUPADO){
+    if(TH->TH[i].estado == OCUPADO)
       estado = 'O';
-    }else if(TH->TH[i].estado == LIVRE){
+    else if(TH->TH[i].estado == LIVRE)
       estado = 'L';
-    }else{
+    else
       estado = 'A';
-    }
     printf("%d: %d, %c\n", i, TH->TH[i].chave, estado);
   }
+}
+
+int THEA_ClusterMaximo(THEA* TH){
+  int maximo = 0;
+  int maior = -1;
+  for(int i = 0; i < TH->m; i++){
+    if(TH->TH[i].estado == OCUPADO) maximo++;
+    else  maximo = 0;
+    if(maximo > maior) maior = maximo;
+  }
+
+  return maior;
+}
+
+float THEA_TamMedioClusters(THEA* TH){
+  int tamanho = 0;
+  int qtdClusters = 0;
+  for(int i = 0; i < TH->m; i++){
+    if(TH->TH[i].estado == OCUPADO) tamanho++;
+    else if(TH->TH[i-1].estado == OCUPADO)  qtdClusters++;
+  }
+
+  return (float)tamanho/qtdClusters;
+}
+
+
+int min(THEA* TH){
+  int menor = INT_MAX;
+
+  for(int i = 0; i < TH->m; i++)
+    if(TH->TH[i].estado == OCUPADO)
+      if(TH->TH[i].chave < menor)
+        menor = TH->TH[i].chave;
+  
+  return menor;
+}
+
+int max(THEA* TH){
+  int maior = INT_MIN;
+
+  for(int i = 0; i < TH->m; i++)
+    if(TH->TH[i].estado == OCUPADO)
+      if(TH->TH[i].chave > maior)
+        maior = TH->TH[i].chave;
+  
+  return maior;
 }

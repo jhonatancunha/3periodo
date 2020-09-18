@@ -15,21 +15,26 @@ int main(int argc, char** argv){
 
   THEA_Print(t);
 
-  printf("===========\n");
-  printf("3? %d\n", THEA_Busca(t, 3));
-  printf("10? %d\n", THEA_Busca(t, 10));
-  printf("7? %d\n", THEA_Busca(t, 7));
-  printf("37? %d\n", THEA_Busca(t, 37));
-  printf("43? %d\n", THEA_Busca(t, 43));
-  printf("44? %d\n", THEA_Busca(t, 44));
-  printf("===========\n");
+  printf("maior cluster: %d\n", THEA_ClusterMaximo(t));
+  printf("tamanho medio cluster: %.2f\n", THEA_TamMedioClusters(t));
+  printf("menor chave: %d\n", min(t));
+  printf("maior chave: %d\n", max(t));
 
-  THEA_Remover(t, 44);
-  THEA_Print(t);
+  // printf("===========\n");
+  // printf("3? %d\n", THEA_Busca(t, 3));
+  // printf("10? %d\n", THEA_Busca(t, 10));
+  // printf("7? %d\n", THEA_Busca(t, 7));
+  // printf("37? %d\n", THEA_Busca(t, 37));
+  // printf("43? %d\n", THEA_Busca(t, 43));
+  // printf("44? %d\n", THEA_Busca(t, 44));
+  // printf("===========\n");
+
+  // THEA_Remover(t, 44);
+  // THEA_Print(t);
   
-  printf("===========\n");
-  printf("44? %d\n", THEA_Busca(t, 44));
-  printf("43? %d\n", THEA_Busca(t, 43));
-  printf("===========\n");
+  // printf("===========\n");
+  // printf("44? %d\n", THEA_Busca(t, 44));
+  // printf("43? %d\n", THEA_Busca(t, 43));
+  // printf("===========\n");
   return 0;
 }
