@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "ilist.h"
 #include "hashtable_ed.h"
 #include <limits.h>

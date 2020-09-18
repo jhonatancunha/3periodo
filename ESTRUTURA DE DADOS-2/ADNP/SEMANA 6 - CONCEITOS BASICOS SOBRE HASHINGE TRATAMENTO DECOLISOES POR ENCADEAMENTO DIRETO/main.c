@@ -5,10 +5,10 @@
 
 
 int main(int argc, char** argv){
-  int m = 499;
-  int n = 100000;
+  int m = 10;
+  int n = 50000;
   int seed = 42;
-  THED* th = inserir_n_aleatorios(n, m, seed);
+  THED* th = inser  ir_n_aleatorios(n, m, seed);
   // print_THED(th);
 
   printf("maior: %d\n\n", THED_MaisLonga(th));
