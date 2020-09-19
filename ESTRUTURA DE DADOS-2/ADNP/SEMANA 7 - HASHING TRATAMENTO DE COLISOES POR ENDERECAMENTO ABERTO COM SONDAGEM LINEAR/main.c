@@ -14,11 +14,14 @@ int main(int argc, char** argv){
   printf("===========\n");
 
   THEA_Print(t);
+  printf("Quantidade de posicoes ocupadas: %d\n", t->n);
 
   printf("maior cluster: %d\n", THEA_ClusterMaximo(t));
   printf("tamanho medio cluster: %.2f\n", THEA_TamMedioClusters(t));
   printf("menor chave: %d\n", min(t));
   printf("maior chave: %d\n", max(t));
+
+  printf("mal sucedido: %.2f\n", THEA_CustoBemSucedida(t));
 
   // printf("===========\n");
   // printf("3? %d\n", THEA_Busca(t, 3));
@@ -31,6 +34,8 @@ int main(int argc, char** argv){
 
   // THEA_Remover(t, 44);
   // THEA_Print(t);
+  // printf("Quantidade de posicoes ocupadas: %d\n", t->n);
+
   
   // printf("===========\n");
   // printf("44? %d\n", THEA_Busca(t, 44));

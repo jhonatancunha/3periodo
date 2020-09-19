@@ -14,7 +14,8 @@ typedef struct ELEMENTO{
 } ELEMENTO;
 
 typedef struct THEA{
-  int m;
+  int m; // TAMANHO TOTAL
+  int n; // QUANTIDADE DE POSIÇÕES OCUPADAS
   ELEMENTO* TH;
 } THEA;
 
@@ -41,6 +42,7 @@ void THEA_Print(THEA *TH);
 
 int THEA_ClusterMaximo(THEA* TH);
 float THEA_TamMedioClusters(THEA* TH);
+float THEA_CustoBemSucedida(THEA *TH);
 
 int min(THEA* TH);
 int max(THEA* TH);

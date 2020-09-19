@@ -3,9 +3,12 @@
 #include <stdio.h>
 #include "tabelahash_end_aberto.h"
 
+#define Max(a, b)  (a > b) ? a : b
+
 THEA* THEA_Criar(int m){
   THEA *th = malloc(sizeof(m));
   th->m = m;
+  th->n = 0;
 
   ELEMENTO* nos = calloc(m, sizeof(ELEMENTO));
   th->TH = nos;
@@ -18,14 +21,19 @@ int THEA_Inserir(THEA* TH, int chave, int valor){
   int k = 0;
   int hash = THEA_Hash(TH, chave, k);
   int hash_inicial = hash;
+  int flag = 0;
   
   while(TH->TH[hash].estado == OCUPADO){
-    if(TH->TH[hash].chave == chave) break;
+    if(TH->TH[hash].chave == chave){
+      flag = 1;
+      break;
+    }
     
     hash = THEA_Hash(TH, chave, ++k);
     if(hash == hash_inicial) return -1;
   }
 
+  if(!flag) TH->n++;
   TH->TH[hash].valor = valor;
   TH->TH[hash].chave = chave;
   TH->TH[hash].estado = OCUPADO;
@@ -54,6 +62,7 @@ void THEA_Remover(THEA* TH, int chave){
   int hash = THEA_Busca(TH, chave);
   if(hash == -1) return;
 
+  TH->n--;
   TH->TH[hash].estado = APAGADO;
 }
 
@@ -71,11 +80,12 @@ void THEA_Print(THEA *TH){
 }
 
 int THEA_ClusterMaximo(THEA* TH){
-  int maximo = 0;
+  int maximo = 1;
   int maior = -1;
   for(int i = 0; i < TH->m; i++){
-    if(TH->TH[i].estado == OCUPADO) maximo++;
-    else  maximo = 0;
+    if(TH->TH[i].estado == OCUPADO)
+      if(TH->TH[i+1].estado == OCUPADO) maximo++;
+    else  maximo = 1;
     if(maximo > maior) maior = maximo;
   }
 
@@ -83,16 +93,36 @@ int THEA_ClusterMaximo(THEA* TH){
 }
 
 float THEA_TamMedioClusters(THEA* TH){
-  int tamanho = 0;
+  int tamanho = 1;
   int qtdClusters = 0;
   for(int i = 0; i < TH->m; i++){
-    if(TH->TH[i].estado == OCUPADO) tamanho++;
+    if(TH->TH[i].estado == OCUPADO)
+      if(TH->TH[i+1].estado == OCUPADO) tamanho++;
     else if(TH->TH[i-1].estado == OCUPADO)  qtdClusters++;
   }
 
   return (float)tamanho/qtdClusters;
 }
 
+float THEA_CustoBemSucedida(THEA *TH){
+  int *T = calloc(TH->m, sizeof(int));
+  int j = 0;
+  int tamanho_j = 1;
+  for(int i = 0; i < TH->m; i++){
+    if(TH->TH[i].estado == OCUPADO)
+      if(TH->TH[i+1].estado == OCUPADO) tamanho_j++;
+    else if(TH->TH[i-1].estado == OCUPADO)  T[j++] = tamanho_j;
+  }
+  
+  float custoMedio = 0;
+
+  for(int i = 0; i < j; i++){
+    custoMedio += ((float)1/TH->n)*(Max((T[i]/2), 1));
+  }
+
+
+  return custoMedio;
+}
 
 int min(THEA* TH){
   int menor = INT_MAX;
