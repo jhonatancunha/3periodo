@@ -80,12 +80,11 @@ void THEA_Print(THEA *TH){
 }
 
 int THEA_ClusterMaximo(THEA* TH){
-  int maximo = 1;
+  int maximo = 0;
   int maior = -1;
   for(int i = 0; i < TH->m; i++){
-    if(TH->TH[i].estado == OCUPADO)
-      if(TH->TH[i+1].estado == OCUPADO) maximo++;
-    else  maximo = 1;
+    if(TH->TH[i].estado == OCUPADO) maximo++;
+    else  maximo = 0;
     if(maximo > maior) maior = maximo;
   }
 
@@ -93,11 +92,10 @@ int THEA_ClusterMaximo(THEA* TH){
 }
 
 float THEA_TamMedioClusters(THEA* TH){
-  int tamanho = 1;
-  int qtdClusters = 0;
+  int tamanho = 0;
+  int qtdClusters = 1;
   for(int i = 0; i < TH->m; i++){
-    if(TH->TH[i].estado == OCUPADO)
-      if(TH->TH[i+1].estado == OCUPADO) tamanho++;
+    if(TH->TH[i].estado == OCUPADO) tamanho++;
     else if(TH->TH[i-1].estado == OCUPADO)  qtdClusters++;
   }
 
@@ -106,22 +104,26 @@ float THEA_TamMedioClusters(THEA* TH){
 
 float THEA_CustoBemSucedida(THEA *TH){
   int *T = calloc(TH->m, sizeof(int));
-  int j = 0;
-  int tamanho_j = 1;
+  int indice_cluster = 0;
+  int tam_cluster = 0;
+
   for(int i = 0; i < TH->m; i++){
-    if(TH->TH[i].estado == OCUPADO)
-      if(TH->TH[i+1].estado == OCUPADO) tamanho_j++;
-    else if(TH->TH[i-1].estado == OCUPADO)  T[j++] = tamanho_j;
+    if(TH->TH[i].estado == OCUPADO) tam_cluster++;
+    else if(TH->TH[i-1].estado == OCUPADO){
+      T[indice_cluster++] = tam_cluster;
+      tam_cluster = 0;
+    }
   }
+
+  if(indice_cluster == 0 && tam_cluster > 0)
+    T[indice_cluster++] = tam_cluster;
+
   
-  float custoMedio = 0;
+  float custo = 0;
+  for(int i = 0; i < indice_cluster; i++)
+    custo += (Max((T[i]/2), 1));
 
-  for(int i = 0; i < j; i++){
-    custoMedio += ((float)1/TH->n)*(Max((T[i]/2), 1));
-  }
-
-
-  return custoMedio;
+  return ((float)1/TH->n)*custo;
 }
 
 int min(THEA* TH){
@@ -144,4 +146,25 @@ int max(THEA* TH){
         maior = TH->TH[i].chave;
   
   return maior;
+}
+
+int* random_vector(int n, int max, int seed){
+  int *v = calloc(n, sizeof(int));
+  srand(seed);
+
+  for(int i = 0; i < n; i++)
+    v[i] = rand() % max;
+
+  return v;
+}
+
+THEA* THEA_CriaRandom(int m, int n, int max, int seed){
+  THEA* random = THEA_Criar(m);
+  int *chave = random_vector(n, max, seed);
+
+  for(int i = 0; i < n; i++){
+    THEA_Inserir(random, chave[i], chave[i]);
+  }
+
+  return random;
 }

@@ -43,6 +43,8 @@ void THEA_Print(THEA *TH);
 int THEA_ClusterMaximo(THEA* TH);
 float THEA_TamMedioClusters(THEA* TH);
 float THEA_CustoBemSucedida(THEA *TH);
+int* random_vector(int n, int max, int seed);
+THEA* THEA_CriaRandom(int m, int n, int max, int seed);
 
 int min(THEA* TH);
 int max(THEA* TH);

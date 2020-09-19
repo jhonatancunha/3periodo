@@ -3,6 +3,11 @@
 
 int main(int argc, char** argv){
   THEA *t = THEA_Criar(10);
+  // int m = 10;
+  // int n = 100;
+  // int max_var = n*10;
+  // int seed = 42;
+  // THEA *t = THEA_CriaRandom(m, n, max_var, seed);
 
   THEA_Inserir(t, 10, 10);
   THEA_Inserir(t, 21, 21);
@@ -21,7 +26,7 @@ int main(int argc, char** argv){
   printf("menor chave: %d\n", min(t));
   printf("maior chave: %d\n", max(t));
 
-  printf("mal sucedido: %.2f\n", THEA_CustoBemSucedida(t));
+  printf("bem sucedido: %f\n", THEA_CustoBemSucedida(t));
 
   // printf("===========\n");
   // printf("3? %d\n", THEA_Busca(t, 3));
