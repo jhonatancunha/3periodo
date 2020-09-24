@@ -5,6 +5,24 @@
 
 #define Max(a, b)  (a > b) ? a : b
 
+static void THEA_Redimensionar(THEA* TH, int mNovo){
+  printf("redimencionada de %d para %d\n", TH->m, mNovo);
+  ELEMENTO *nova = calloc(mNovo, sizeof(ELEMENTO)); 
+  ELEMENTO *antiga = TH->TH;
+  int mAntigo = TH->m;
+  TH->TH = nova;
+  TH->m = mNovo;
+  TH->n = 0;
+
+  for(int i = 0; i < mNovo; i++) nova[i].estado = LIVRE;
+
+  for(int i = 0; i < mAntigo; i++)
+    if(antiga[i].estado == OCUPADO)
+      THEA_Inserir(TH, antiga[i].chave, antiga[i].valor);
+  
+  free(antiga);
+}
+
 THEA* THEA_Criar(int m){
   THEA *th = malloc(sizeof(m));
   th->m = m;
@@ -18,6 +36,9 @@ THEA* THEA_Criar(int m){
 }
 
 int THEA_Inserir(THEA* TH, int chave, int valor){
+
+  if(TH->n > (TH->m/2)) THEA_Redimensionar(TH, TH->m * 2);
+
   int k = 0;
   int hash = THEA_Hash(TH, chave, k);
   int hash_inicial = hash;
