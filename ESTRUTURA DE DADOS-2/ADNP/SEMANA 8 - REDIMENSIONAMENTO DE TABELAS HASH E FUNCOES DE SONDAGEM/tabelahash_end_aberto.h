@@ -1,5 +1,12 @@
 // TABELA HASH ENDEREÇAMENTO ABERTO
 #pragma once
+#include "prime_list.h"
+
+typedef enum FUNC_HASH {
+  LINEAR,
+  HASH_QUADRATICO,
+  HASH_DUPLO
+} FUNC_HASH;
 
 typedef enum ESTADO {
   LIVRE,
@@ -16,16 +23,23 @@ typedef struct ELEMENTO{
 typedef struct THEA{
   int m; // TAMANHO TOTAL
   int n; // QUANTIDADE DE POSIÇÕES OCUPADAS
+  int s;
+  int colisoes;
   ELEMENTO* TH;
+  prime_list_t* prime_list;
+  int (*hash)(struct THEA* TH, int chave, int k);
 } THEA;
 
 
 // FUNÇÃO QUE CRIA A TABELA DE ENDERAÇAMENTO ABERTO
-THEA* THEA_Criar(int m);
+THEA* THEA_Criar(int m, FUNC_HASH tipo_hash);
 
 // FUNÇÃO DE HASH COM SONDAGEM LINAR
 // TRATAMOS A TABELA COMO UMA LISTA CIRCULAR
 int THEA_Hash(THEA* TH, int chave, int k);
+int THEA_HashLinear(THEA* TH, int chave, int k);
+int THEA_HashQuadratica(THEA* TH, int chave, int k);
+int THEA_HashDuplo(THEA* TH, int chave, int k);
 
 // FUNÇÃO DE INSERÇÃO DE VALORES E CHAVES DENTRO DA TABELA HASH
 int THEA_Inserir(THEA* TH, int chave, int valor);
@@ -44,7 +58,7 @@ int THEA_ClusterMaximo(THEA* TH);
 float THEA_TamMedioClusters(THEA* TH);
 float THEA_CustoBemSucedida(THEA *TH);
 int* random_vector(int n, int max, int seed);
-THEA* THEA_CriaRandom(int m, int n, int max, int seed);
+THEA* THEA_CriaRandom(int m, int n, int max, int seed, FUNC_HASH tipo_hash);
 
 int min(THEA* TH);
 int max(THEA* TH);
