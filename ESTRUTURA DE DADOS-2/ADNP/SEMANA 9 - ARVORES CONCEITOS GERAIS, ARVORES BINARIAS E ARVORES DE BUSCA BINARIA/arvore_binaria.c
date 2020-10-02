@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "arvore.h"
 
 void imprime_pre_ordem(AB *A){
