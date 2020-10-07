@@ -57,7 +57,7 @@ static void ABB_Remover_No_Folha(AB *pai, AB *folha){
   free(folha);
 }
 
-static void ABB_Remover_No_Filho_Unico(AB *pai, AB *no){
+static void ABB_Remover_No_Filho_Unico(AB **A, AB *pai, AB *no){
   if(no->chave < pai->chave){
     if(no->esq != NULL)
       pai->esq = no->esq;
@@ -65,15 +65,17 @@ static void ABB_Remover_No_Filho_Unico(AB *pai, AB *no){
       pai->esq = no->dir;
   }else{
     if(no->esq != NULL)
-      pai->dir = no->esq;
+      if(pai == no) (*A) = no->esq;
+      else pai->dir = no->esq;
     else
-      pai->dir = no->dir;
+      if(pai == no) (*A) = no->dir;
+      else pai->dir = no->dir;
   }
 
   free(no);
 }
 
-static void ABB_Remover_No_Dois_Filhos(AB *no){
+static void ABB_Remover_No_Dois_Filhos(AB **A, AB *no){
   AB* sucessor = no->dir;
   AB* pai_sucessor = no;
 
@@ -87,7 +89,7 @@ static void ABB_Remover_No_Dois_Filhos(AB *no){
   if(sucessor->dir == NULL && sucessor->esq == NULL)
     ABB_Remover_No_Folha(pai_sucessor, sucessor);
   else
-    ABB_Remover_No_Filho_Unico(pai_sucessor, sucessor);
+    ABB_Remover_No_Filho_Unico(A ,pai_sucessor, sucessor);
 
 }
 
@@ -107,9 +109,9 @@ void ABB_Remover(AB **A, int chave){
   if(no->dir == NULL && no->esq == NULL)
     ABB_Remover_No_Folha(pai, no);
   else if(no->dir == NULL || no->esq == NULL)
-    ABB_Remover_No_Filho_Unico(pai, no);
+    ABB_Remover_No_Filho_Unico(A, pai, no);
   else
-    ABB_Remover_No_Dois_Filhos(no);
+    ABB_Remover_No_Dois_Filhos(A, no);
 }
 
 void ABB_Imprimir(AB *arvore, char* caso){
