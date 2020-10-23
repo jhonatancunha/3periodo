@@ -162,3 +162,18 @@ int AT_Tamanho(ASCIITrie *T){
   return T->tamanho;
 }
 
+int SubstringCountLenL(char * s, int L){
+  if(L > strlen(s)) return 0;
+
+  ASCIITrie *subT = NULL;
+  char *substring = calloc(L+1, sizeof(char));
+
+  for(int i = 0; i < strlen(s)-1; i++){
+    int old_i = i;
+    for(int j = 0; j < L; j++) substring[j] = s[i++];
+    if(strlen(substring) == L) AT_Inserir_Iterativo(&subT, substring, i);
+    i = old_i;
+  }
+
+  return AT_Tamanho(subT);
+}

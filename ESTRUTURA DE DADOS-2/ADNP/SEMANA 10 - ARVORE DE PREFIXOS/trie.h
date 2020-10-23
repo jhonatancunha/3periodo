@@ -27,3 +27,5 @@ void AT_Imprimir(ASCIITrie *T);
 
 int AT_Limpa(ASCIITrie *T);
 int AT_Tamanho(ASCIITrie *T);
+
+int SubstringCountLenL(char * s, int L);

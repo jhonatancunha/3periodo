@@ -1,73 +1,55 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "trie.h"
 
+char* lerCasos(char *arquivo){
+  FILE *arq = fopen(arquivo, "r");
+  int tam;
+  fseek(arq, 0, SEEK_END);
+  tam = ftell(arq);
+  fseek(arq, 0, SEEK_SET);
+
+  char *texto = calloc(tam+1, sizeof(char));
+  fgets(texto, tam+1, arq);
+
+  return texto;
+}
+
 int main(int argc, char** argv){
-  ASCIITrie *T = NULL;
+  int L;
+  if(argc == 1) L = 3;
+  L = atoi(argv[1]);
 
-  AT_Inserir_Iterativo(&T, "", 42);
-  AT_Inserir_Iterativo(&T, "o", 1);
-  AT_Inserir_Iterativo(&T, "rato", 10);
-  AT_Inserir_Iterativo(&T, "roeu", 11);
-  AT_Inserir_Iterativo(&T, "a", 2);
-  AT_Inserir_Iterativo(&T, "roupa", 12);
-  AT_Inserir_Iterativo(&T, "do", 3);
-  AT_Inserir_Iterativo(&T, "rei", 13);
-  AT_Inserir_Iterativo(&T, "de", 14);
-  AT_Inserir_Iterativo(&T, "roma", 15);  
+  printf("==================\n");
+  char caso[] = "case_100.txt";
+  printf("%s\n", caso);
+  char *string = lerCasos(caso);
+  printf("L=%d, r: %d\n", L,SubstringCountLenL(string, L));
 
+  printf("==================\n");
+  char caso2[] = "case_1000.txt";
+  printf("%s\n", caso2);
+  char *string2 = lerCasos(caso2);
+  printf("L=%d, r: %d\n", L,SubstringCountLenL(string2, L));
 
+  printf("==================\n");
+  char caso3[] = "case_10000.txt";
+  printf("%s\n", caso3);
+  char *string3 = lerCasos(caso3);
+  printf("L=%d, r: %d\n", L,SubstringCountLenL(string3, L));
 
-  int check = AT_Limpa(T);
-  printf("%s\n", (check == 1) ? "Trie esta limpa!" : "Trie nao esta limpa");
+  printf("==================\n");
+  char caso4[] = "case_50000.txt";
+  printf("%s\n", caso4);
+  char *string4 = lerCasos(caso4);
+  printf("L=%d, r: %d\n", L,SubstringCountLenL(string4, L));
 
-
-  check = AT_Limpa(T);
-  printf("%s\n", (check == 1) ? "Trie esta limpa!" : "Trie nao esta limpa");
-
-  int tamanho = AT_Tamanho(T);
-  printf("Tamanho: %d\n", tamanho);
-
-
-  ASCIITrie *search;
-  char *x;
-
-  x = "rei";
-  printf("%s: %s\n", (AT_Buscar_Iterativo(T, x) != NULL) ? "Chave encontrada" : "Chave nao encontrada", x);
-
-  x = "goma";
-  printf("%s: %s\n", (AT_Buscar(T, x) != NULL) ? "Chave encontrada" : "Chave nao encontrada", x);
-
-  x = "roma";
-  printf("%s: %s\n", (AT_Buscar_Iterativo(T, x) != NULL) ? "Chave encontrada" : "Chave nao encontrada", x);
-  AT_Imprimir(T);
-
-  printf("\n============\nChave roma foi removida!\n============\n\n");
-  AT_Remover_Iterativo(&T, "roma");
-
-  AT_Imprimir(T);
-  x = "roma";
-  printf("%s: %s\n", (AT_Buscar_Iterativo(T, x) != NULL) ? "Chave encontrada" : "Chave nao encontrada", x);
+  printf("==================\n");
+  char caso5[] = "case_all.txt";
+  printf("%s\n", caso5);
+  char *string5 = lerCasos(caso5);
+  printf("L=%d, r: %d\n", L,SubstringCountLenL(string5, L));
   
-  printf("\n============\nChave roupa foi removida!\n============\n\n");
-  AT_Remover_Iterativo(&T, "roupa");  
-  AT_Imprimir(T);
-
-  printf("\n============\nChave rei foi removida!\n============\n\n");
-  AT_Remover_Iterativo(&T, "rei");
-
-  AT_Imprimir(T);
-  printf("\n============\nChave roeu foi removida!\n============\n\n");
-  AT_Remover_Iterativo(&T, "roeu");
-  AT_Imprimir(T);
-
-  printf("\n============\nChave roeu foi removida!\n============\n\n");
-  AT_Remover_Iterativo(&T, "roeu");
-   AT_Imprimir(T);
-
-    printf("\n============\nChave rato foi removida!\n============\n\n");
-  AT_Remover_Iterativo(&T, "rato");
-  AT_Imprimir(T);
-
-
   return 0;
 }
