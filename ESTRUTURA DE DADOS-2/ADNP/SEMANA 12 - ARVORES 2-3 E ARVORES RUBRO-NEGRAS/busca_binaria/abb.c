@@ -3,7 +3,7 @@
 #include "abb.h"
 
 AB* ABB_Criar(int chave, AB* esq, AB* dir){
-  AB* arvore = malloc(sizeof(AB));
+  AB* arvore = (AB*) malloc(sizeof(AB));
   arvore->chave = chave;
   arvore->dir = dir;
   arvore->esq = esq;
