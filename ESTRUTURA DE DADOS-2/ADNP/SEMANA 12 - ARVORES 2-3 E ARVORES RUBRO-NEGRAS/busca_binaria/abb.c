@@ -80,9 +80,10 @@ static void ABB_Sort_Iterativo(AB *A, int *v, int n){
   free(fila);
 }
 
-void ABB_Sort(int* v, int n){
+void ABB_Sort(int* v, int n, float *altura){
   AB *A = NULL;
   for(int i = 0; i < n; i++) ABB_Inserir_Iterativo(&A , v[i]);
 
+  *altura += ABB_Altura(A);
   ABB_Sort_Iterativo(A, v, n);
 }

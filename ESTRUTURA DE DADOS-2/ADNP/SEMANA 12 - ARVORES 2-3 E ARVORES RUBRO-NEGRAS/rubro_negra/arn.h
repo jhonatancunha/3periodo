@@ -12,4 +12,5 @@ typedef struct ARN{
 } ARN;
 
 void ARN_Inserir(ARN **A, int chave, int valor);
-void ARN_Sort(int* v, int n);
+void ARN_Sort(int* v, int n, float *altura);
+int ARN_Altura(ARN *A);

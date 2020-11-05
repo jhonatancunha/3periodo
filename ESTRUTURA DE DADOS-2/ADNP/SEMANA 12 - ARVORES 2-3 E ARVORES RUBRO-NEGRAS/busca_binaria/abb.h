@@ -16,6 +16,6 @@ void ABB_Inserir_Iterativo(AB **T, int chave);
 // FUNÇÃO QUE DESALOCA TODOS OS NÓS DA ARVORE
 void ABB_Destruir(AB **arvore);
 
-void ABB_Sort(int* v, int n);
+void ABB_Sort(int* v, int n , float *altura);
 
 int ABB_Altura(AB *A);

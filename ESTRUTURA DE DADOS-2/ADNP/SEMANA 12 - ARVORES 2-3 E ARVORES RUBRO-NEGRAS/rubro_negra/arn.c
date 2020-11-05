@@ -76,6 +76,20 @@ void ARN_Inserir(ARN **A, int chave, int valor){
   (*A)->cor = NEGRO;
 }
 
+int ARN_Altura(ARN *A){
+  if(A == NULL) return -1;
+
+  int alt_d = ARN_Altura(A->dir);
+  int alt_e = ARN_Altura(A->esq);
+
+  if(alt_e < alt_d){
+    if(A->cor == NEGRO) return alt_d+1;
+  }
+  else{
+    if(A->cor == NEGRO) return alt_e+1;
+  }
+}
+
 static void ARN_Sort_R(ARN *A, int *v, int *i){
   if(A == NULL) return;
   ARN_Sort_R(A->esq, v, i);
@@ -85,9 +99,11 @@ static void ARN_Sort_R(ARN *A, int *v, int *i){
   free(A); 
 }
 
-void ARN_Sort(int* v, int n){
+void ARN_Sort(int* v, int n, float *altura){
   ARN *A = NULL;
   for(int i = 0; i < n; i++) ARN_Inserir(&A , v[i], 0);
+
+  *altura += ARN_Altura(A);
 
   int x = 0;
   ARN_Sort_R(A, v, &x);
