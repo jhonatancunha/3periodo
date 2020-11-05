@@ -11,8 +11,11 @@ AB* ABB_Criar(int chave, AB* esq, AB* dir);
 
 // FUNÇÃO QUE INSERE CHAVE NA ARVORE BINÁRIA
 void ABB_Inserir(AB **arvore, int chave);
+void ABB_Inserir_Iterativo(AB **T, int chave);
 
 // FUNÇÃO QUE DESALOCA TODOS OS NÓS DA ARVORE
 void ABB_Destruir(AB **arvore);
 
 void ABB_Sort(int* v, int n);
+
+int ABB_Altura(AB *A);

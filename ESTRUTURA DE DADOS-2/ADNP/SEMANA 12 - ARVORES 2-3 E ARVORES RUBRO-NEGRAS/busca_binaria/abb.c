@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 #include "abb.h"
 
 AB* ABB_Criar(int chave, AB* esq, AB* dir){
@@ -23,6 +24,23 @@ void ABB_Inserir(AB **arvore, int chave){
   }
 }
 
+void ABB_Inserir_Iterativo(AB **T, int chave){
+  if(*T == NULL) *T = ABB_Criar(chave, NULL, NULL);
+  int i = 0;
+  AB **aux = T;
+
+  while(*aux != NULL){
+    if(chave > (*aux)->chave) {
+      aux = &(*aux)->dir;
+    }else if (chave < (*aux)->chave){
+      aux = &(*aux)->esq;
+    }
+    else return;
+  }
+
+  *aux = ABB_Criar(chave, NULL, NULL);
+}
+
 void ABB_Destruir(AB **arvore){
   if((*arvore) == NULL) return;
   
@@ -31,21 +49,40 @@ void ABB_Destruir(AB **arvore){
   free(arvore);
 }
 
+int ABB_Altura(AB *A){
+  if(A == NULL) return -1;
 
-static void ABB_Sort_R(AB *A, int *v, int *i){
-  if(A == NULL) return;
-  ABB_Sort_R(A->esq, v, i);
-  v[(*i)] = A->chave;
-  *i += 1;
-  ABB_Sort_R(A->dir, v, i);
-  free(A); 
+  int alt_d = ABB_Altura(A->dir);
+  int alt_e = ABB_Altura(A->esq);
+
+  if(alt_e < alt_d)
+    return alt_d+1;
+  else
+    return alt_e+1;
+}
+
+static void ABB_Sort_Iterativo(AB *A, int *v, int n){
+  AB **fila = calloc(n, sizeof(AB));
+  AB *aux;
+  int x = 1;
+  int i = 0;
+  int z = n-1;
+  fila[0] = A;
+
+  while(x > i){
+    aux = fila[i++];
+    v[z--] = aux->chave;
+    if(aux ->esq != NULL) fila[x++] = aux->esq;
+    if(aux ->dir != NULL) fila[x++] = aux->dir;
+    free(fila[i-1]);
+  }
+
+  free(fila);
 }
 
 void ABB_Sort(int* v, int n){
   AB *A = NULL;
-  for(int i = 0; i < n; i++) ABB_Inserir(&A , v[i]);
+  for(int i = 0; i < n; i++) ABB_Inserir_Iterativo(&A , v[i]);
 
-  int x = 0;
-  ABB_Sort_R(A, v, &x);
+  ABB_Sort_Iterativo(A, v, n);
 }
-

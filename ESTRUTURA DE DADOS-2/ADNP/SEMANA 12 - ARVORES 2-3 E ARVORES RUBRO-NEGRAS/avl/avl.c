@@ -234,6 +234,7 @@ static void AAVL_Inserir_R(AAVL **A, int chave, int dado, int *verificar){
 
 void AAVL_Inserir(AAVL** A, int chave, int dado){
     int verificar = 0;
+    
     AAVL_Inserir_R(A, chave, dado, &verificar);
 }
 
@@ -248,7 +249,9 @@ static void AVL_Sort_R(AAVL *A, int *v, int *i){
 
 void AAVL_Sort(int* v, int n){
   AAVL *A = NULL;
-  for(int i = 0; i < n; i++) AAVL_Inserir(&A , v[i], 0);
+  for(int i = 0; i < n; i++){
+      AAVL_Inserir(&A , v[i], 0);
+  }
 
   int x = 0;
   AVL_Sort_R(A, v, &x);
