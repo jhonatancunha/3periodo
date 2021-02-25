@@ -247,35 +247,28 @@ static void AVL_Sort_R(AAVL *A, int *v, int *i){
   free(A); 
 }
 
-void AAVL_Sort(int* v, int n){
+void AAVL_Sort(int* v, int n, float *altura){
   AAVL *A = NULL;
   for(int i = 0; i < n; i++){
       AAVL_Inserir(&A , v[i], 0);
   }
+
+  *altura += AAVL_Altura(A);
 
   int x = 0;
   AVL_Sort_R(A, v, &x);
 }
 
 
+int AAVL_Altura(AAVL *A){
+  if(A == NULL) return -1;
 
-// static int AVL_FB(AVL *A){
-//   return AVL_Altura(A->esq) - AVL_Altura(A->dir);
-// }
+  int alt_d = AAVL_Altura(A->dir);
+  int alt_e = AAVL_Altura(A->esq);
 
-
-// static AVL_Inserir_Recursivo(AVL **A, int chave, int valor){
-//   if(*A == NULL){
-//     *A = AVL_Criar(chave, valor);
-//     return;
-//   }
-
-//   if((*A)->chave > chave)
-//     AVL_Inserir_Recursivo(&(*A)->esq, chave, valor);
-//   if((*A)->chave < chave)
-//     AVL_Inserir_Recursivo(&(*A)->dir, chave, valor);
-// } 
-
-// void AVL_Inserir(AVL **A, int chave, int valor){
-//   AVL_Inserir_Recursivo(A, chave, valor);
-// }
+  if(alt_e < alt_d)
+    return alt_d+1;
+  else
+    return alt_e+1;
+  
+}

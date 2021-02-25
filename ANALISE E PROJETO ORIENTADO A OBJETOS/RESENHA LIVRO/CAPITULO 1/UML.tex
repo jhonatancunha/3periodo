@@ -1,0 +1,259 @@
+\documentclass[a4paper, 12pt]{article}
+%%%%%%%%%%% Pacotes utilizados
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[normalem]{ulem} %para 
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows, arrows.meta}
+
+\usepackage{float}
+
+\usepackage[backend=biber, style=numeric]{biblatex}
+
+ \addbibresource{referencia.bib}
+
+
+%%%%%%%%%%%%%%% Configurações
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23cm}
+\setlength{\evensidemargin}{-1cm} \setlength{\oddsidemargin}{0.5cm}
+\setlength{\topmargin}{0cm}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Nome:} Jhonatan Guilherme de Oliveira Cunha}
+\rhead{\textbf{RA:} 2135590}
+\cfoot{\thepage}
+
+\hoffset= -0.4cm
+\voffset=-0.9cm
+
+
+\tikzstyle{class}=[
+	rectangle,
+	draw=black,
+	text centered,
+	anchor=north,
+	text=black
+]
+\tikzstyle{myarrow}=[->, diamond, thick]
+
+\tikzset{UMLRectangle/.style={class ,rectangle, text width=7em, text centered}}
+
+
+%%%%%%%%%%%%% Início do documento
+
+
+\begin{document}
+	
+	\hspace{5cm}
+	
+	\begin{large}
+		\begin{center}
+			\textbf{UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ}\newline
+			\textbf{CAMPUS CAMPO MOURÃO}
+		\end{center}
+	\end{large}
+	
+	\hspace{20cm}
+	
+	\begin{center}
+		\textbf{RESENHA CAPÍTULO 1 - LIVRO ``UML Essencial
+		FOWLER, Martin''}
+	\end{center}
+
+	\hspace{10cm}
+	
+	\section{O que é a UML?}
+	
+	\onehalfspacing
+	\textbf{UML} é uma família de notações gráficas, sua sigla vem de \textit{Unified Modeling Language} (Linguagem de Modelagem Unificada) \cite{umlEssencial}. Este tipo de linguagem existe há muito tempo na industria de software, uma de suas principais funções é a ajuda na descrição e no projeto de sistemas de software, especificamente no paradigma orientado a objetos (OO).
+	
+	\section{Maneiras de usar a UML}
+	
+	Existem varias maneiras diferentes de utilizar a \textbf{UML} como ferramenta, de acordo com \textbf{Steve Mellor} e \textbf{Martin Fowler} três modos são principais. Sendo eles: esboço, projeto e linguagem de programação \cite{umlEssencial}.
+
+	
+	\subsection{Esboço}
+	
+		È principalmente usado para transmitir informações sobre um sistema, sendo elas diferentes em cada objetivo que deseja atingir. A fim de exemplificar, diferenciaremos entre desenvolvimento e engenharia reversa:
+		
+		\begin{itemize}
+			\item \textbf{Desenvolvimento:} destacamos ideias e alternativas que utilizaremos no código, ou seja, visualizamos tudo antes de começar a programar.
+			
+			\item \textbf{Engenharia Reversa:} utilizamos para explicar o funcionamento de uma parte do sistema.
+		\end{itemize}
+	
+	\subsection{Projeto}
+	
+		Sua principal característica está em sempre construir um modelo completo, ou seja, um projeto detalhado para o programador codificar, possibilitando-o a seguir o desenvolvimento como uma tarefa simples e direta. 
+	
+	
+	\subsection{Linguagem de Programação}
+	
+		Neste caso programadores utilizam a \textbf{UML} como linguagem de programação, ou seja, os diagramas são compilados diretamente para código-fonte, utilizando ferramentas sofisticadas (MDA e UML) \cite{umlEssencial}.
+		
+		 A partir da \textbf{UML 2} podemos utilizar três tipos de diagramas a fim de modelar lógicas comportamentais, sendo eles: diagramas de interação, estado e atividade.
+	
+	\subsection{Perspectivas de Modelagem}
+	
+		Podemos enxergar a \textbf{UML} em duas variações de modelagem, sendo elas: conceitual e modelagem de software.
+		
+		\begin{itemize}
+			\item \textbf{Conceitual:} representa uma descrição dos conceitos a respeito de um domínio de estudo.
+			
+			\item \textbf{Software:} os elementos de um sistema de software dizem a respeito diretamente dos elementos da UML. 
+		\end{itemize}
+	
+	
+	\section{Como chegamos à UML?}
+	
+		A partir da década de oitenta, com a popularização do paradigma orientado a objeto, muitas pessoas começaram a pensar sobre linguagens gráficas a fim de modelar problemas utilizando tal paradigma \cite{umlEssencial}.
+		
+		Existiam muitos profissionais que estudavam sobre o assunto na época, porém, havia algumas divergências sobre seus estudos. Somente com a aliança de \textbf{Booch} e \textbf{Rumbaugh} foi possível a publicação de um método padrão para a utilização e aperfeiçoamento das linguagens gráficas \cite{umlEssencial}.
+		
+		Somente após o ano de 1997, com a liderança de \textbf{Mary Loomis} e \textbf{Jim Odell}, começou-se a unificação de várias metodologias em favor de um padrão. Desta forma surgiu-se então a primeira versão do que conhecemos hoje como \textbf{UML} \cite{umlEssencial}.
+		
+		
+	\section{Notações e Metamodelos}
+	
+		As notações na UML são basicamente a sintaxe gráfica da linguagem de modelagem, com objetivo de exemplificar, citamos a notação de diagrama de classes, que são representados os itens e conceitos, associação e multiplicidade.
+
+		
+		Existem algumas definições informais para explicar associação, multiplicidade ou classe. Então com intuito de atribuir significados formais para tais características, é possível indicar um \textbf{metamodelo}: diagrama que define conceitos da linguagem. Veja na Figura \ref{metamodelo1} um exemplo de metamodelo UML.
+		
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[node distance=3cm, scale=0.5]
+				\node (Caracteristica) [class, rectangle]{
+					\textbf{Característica}
+				};
+			
+				\node (Caracteristica Estrutural) [class, rectangle, below of=Caracteristica, left=50pt]{
+					\textbf{Característica Estrutural}
+				};   
+			
+				\node (Caracteristica Comportamental) [class, rectangle, below of=Caracteristica, right=50pt]{
+					\textbf{Característica Comportamental}
+				};
+			
+				\node (Parametro) [class, rectangle, below of=Caracteristica Comportamental]{
+					\textbf{Parâmetro}
+				};
+			
+				\draw[->, >=open triangle 90] (Caracteristica Estrutural) -| (Caracteristica);
+				
+				\draw[]  (Caracteristica Comportamental) -- (Caracteristica Estrutural);
+			
+				\draw[->, >=diamond] 
+					(Parametro) -- node[pos=0.8, right, font=\fontsize{10}{10}] {$0..1$}  (Caracteristica Comportamental)
+					(Parametro) -- node[pos=0.1, right, font=\fontsize{10}{10}] {$\textbf{*}$}  (Caracteristica Comportamental) 
+					(Parametro) -- node[pos=0.12, left, font=\fontsize{10}{10}] {$\left\lbrace ordered \right\rbrace $}  (Caracteristica Comportamental);
+			\end{tikzpicture}
+			\caption{Uma pequena parte do metamodelo UML \\ Fonte: Martin, FOWLER,. UML Essencial. Grupo A, 2011.}
+			\label{metamodelo1}
+		\end{figure}
+	
+		\section{Diagramas UML}
+		
+		Existem 13 tipos de diagramas oficiais presentes na \textbf{UML 2}, que serão classificados ao decorrer da matéria \cite{umlEssencial}. Porém, como os tipos de diagramas não são totalmente rígidos, podemos utilizar um tipo de diagrama em outro. Veja na Figura \ref{tiposDiagramasUML} os tipos de diagramas UML.
+		
+		
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				
+				%NODES
+				\node[UMLRectangle](diagrama) at (0,0){Diagrama};
+				
+				\node[UMLRectangle](estrutura) at (4,3){Diagrama de Estrutura};
+				
+				\node[UMLRectangle](comportamento) at (4,-4){\footnotesize Diagrama de Comportamento};
+				
+				\node[UMLRectangle](classes) at (9,6){Diagrama de Classes};
+				
+				\node[UMLRectangle](componentes) at (14,5){Diagrama de Componentes};					
+				
+				\node[UMLRectangle](estrutura compostas) at (9,3.35){Diagrama de Estrutura Compostas};
+				
+				\node[UMLRectangle](instalacoes) at (14,2.2){Diagrama de Instalações};
+				
+				\node[UMLRectangle](objetos) at (9, 1){ Diagrama de Objetos};
+				
+				\node[UMLRectangle](pacotes) at (14, 0){ Diagrama de Pacotes};
+				
+				\node[UMLRectangle](maquina de estado) at (9, -3.7){ Diagrama de Máquina de Estado};
+				
+				\node[UMLRectangle](atividades) at (9, -6){ Diagrama de Atividades};
+				
+				\node[UMLRectangle](caso de uso) at (9, -7.8){ Diagrama de Caso de Uso};
+				
+				\node[UMLRectangle](iteracoes) at (9, -9.5){ Diagrama de Iterações};
+				
+				\node[UMLRectangle](sequencia) at (14, -6){ Diagrama de Sequência};
+				
+				\node[UMLRectangle](comunicacao) at (14, -7.5){ Diagrama de Comunicação};
+				
+				\node[UMLRectangle](visao geral) at (14, -9.2){\footnotesize Diagrama de visão geral de iteração};
+				
+				\node[UMLRectangle](sincronizacao) at (14, -11.3){\footnotesize Diagrama de Sincronização};
+				
+				%EDGES CIMA ESTRUTURA
+				
+				\draw[->, >=open triangle 90] (estrutura) |- (diagrama);
+				
+				\draw[] (estrutura) -- (comportamento);
+				
+				\draw[->, >=open triangle 90] (classes) -| (estrutura);
+				
+				\draw[->, >=open triangle 90] (estrutura compostas) -- (estrutura);
+				
+				\draw[] (objetos) -|  (7, 2.4) (estrutura);
+				
+				\draw[->, >=open triangle 90] (componentes) -| (estrutura);
+				
+				\draw[] (instalacoes) -| (12, 4.35) (estrutura);
+				
+				\draw[] (pacotes) -| (12, 4.35) (estrutura);
+				
+				%EDGES CIMA COMPORTAMENTO
+				
+				\draw[->, >=open triangle 90] (maquina de estado) -- (comportamento);
+				
+				\draw[->, >=open triangle 90] (atividades) -| (comportamento);
+				
+				\draw[->, >=open triangle 90] (caso de uso) -| (comportamento);
+				
+				\draw[->, >=open triangle 90] (iteracoes) -| (comportamento);
+				
+				\draw[->, >=open triangle 90] (visao geral) -- (iteracoes);
+				
+				\draw[] (sequencia) -| (11.6, -10.14) (iteracoes);
+				
+				\draw[] (comunicacao) -| (11.6, -10.14) (iteracoes);
+				
+				\draw[] (sincronizacao) -| (11.6, -10.14) (iteracoes);
+				
+			\end{tikzpicture}
+			\caption{Classificação dos tipos de diagrama da UML\\ Fonte: Martin, FOWLER,. UML Essencial. Grupo A, 2011.}
+			\label{tiposDiagramasUML}
+		\end{figure}
+	
+		A \textbf{UML} é uma linguagem que você pode esperar bastante regras prescritivas (estabelecidas por um comitê formador de padrões). Porém, como a mesma é muito complexa, acaba por ser frequentemente aberta à múltiplas interpretações.
+		
+		\section{Considerações Finais}
+		
+		Apesar de todas as qualidades da utilização de \textbf{UML}, um de seus defeitos é que o programador ao analisar o diagrama não irá saber exatamente como ficará o código final, somente ter ideias aproximadas.
+		
+		
+		Desta forma fica evidente que não devemos ficar presos aos diagramas \textbf{UML}, ou seja, caso o mesmo não for suficiente para descrever nossas ideias, podemos recorrer a outras alternativas de diagramas e utiliza-los em conjunto.
+		
+		\nocite{*}
+		\printbibliography
+		
+\end{document}

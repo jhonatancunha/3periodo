@@ -77,7 +77,7 @@ void ARN_Inserir(ARN **A, int chave, int valor){
 }
 
 int ARN_Altura(ARN *A){
-  if(A == NULL) return -1;
+  if(A == NULL) return 0;
 
   int alt_d = ARN_Altura(A->dir);
   int alt_e = ARN_Altura(A->esq);

@@ -9,4 +9,5 @@ typedef struct AAVL{
 }AAVL;
 
 void AAVL_Inserir(AAVL** A, int chave, int dado);
-void AAVL_Sort(int* v, int n);
+void AAVL_Sort(int* v, int n, float *altura);
+int AAVL_Altura(AAVL *A);

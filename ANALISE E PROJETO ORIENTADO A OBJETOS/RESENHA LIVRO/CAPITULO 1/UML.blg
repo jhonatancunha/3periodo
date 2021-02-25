@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'UML.blg'
+[497] biber-MSWIN32:340> INFO - === 
+[860] Biber.pm:415> INFO - Reading 'UML.bcf'
+[1531] Biber.pm:949> INFO - Using all citekeys in bib section 0
+[1622] Biber.pm:4340> INFO - Processing section 0
+[1699] Biber.pm:4531> INFO - Looking for bibtex format file 'referencia.bib' for section 0
+[2250] bibtex.pm:1689> INFO - LaTeX decoding ...
+[2268] bibtex.pm:1494> INFO - Found BibTeX data source 'referencia.bib'
+[2517] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2517] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2517] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
+[2517] Biber.pm:4174> INFO - No sort tailoring available for locale 'pt-BR'
+[2521] bbl.pm:654> INFO - Writing 'UML.bbl' with encoding 'UTF-8'
+[2523] bbl.pm:757> INFO - Output to UML.bbl
