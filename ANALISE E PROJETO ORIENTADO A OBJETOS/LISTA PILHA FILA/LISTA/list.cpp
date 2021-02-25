@@ -30,7 +30,7 @@ class List{
     int size;
 
     Node *getNodeBeforeOfPosition(int position){
-      Node *aux = this->start;
+      Node *aux = this->getStart();
       while(position > 1){
           aux = aux->getNext();
           position--;
@@ -39,15 +39,41 @@ class List{
         return aux;
     }
 
-    void addOnStart(Node *node){
-      node->setNext(this->start);
+    Node *getStart(){
+      return this->start;
+    }
+
+    void setStart(Node *node){
       this->start = node;
+    }
+
+    void addOnStart(Node *node){
+      node->setNext(this->getStart());
+      this->setStart(node);
+    }
+
+    void addSize(){
+      this->size++;
+    }
+
+    void removeSize(){
+      this->size--;
     }
   
   public:
     List(){
       this->start = NULL;
       this->size = 0;
+    }
+
+    ~List(){
+      Node* node = this->getStart();
+      while(this->getSize()){
+        this->setStart(node->getNext());
+        delete node;
+        node = this->getStart();
+        this->removeSize();
+      }
     }
 
     int getSize(){
@@ -60,13 +86,13 @@ class List{
       if(this->getSize() == 0){
         this->addOnStart(node);
       }else{
-        Node *aux = this->start;
+        Node *aux = this->getStart();
         while(aux->getNext() != NULL) aux = aux->getNext();
         
         aux->setNext(node);
       }
 
-      this->size++;
+      this->addSize();
     }
 
     void add(int value, int position){
@@ -77,24 +103,23 @@ class List{
         this->addOnStart(node);
       }else{
         Node *aux = this->getNodeBeforeOfPosition(position);
-        if(aux->getNext() != NULL){
-          node->setNext(aux->getNext());
-        }
+        if(aux->getNext() != NULL) node->setNext(aux->getNext());
+        
         aux->setNext(node);
       }
 
-      this->size++;
+      this->addSize();
 
     }
 
     void remove(int position){
       if(position > this->getSize() || this->getSize() == 0) return;
-      Node *aux = this->start;
+      Node *aux = this->getStart();
       Node *deleted;
 
       if(position == 0){
         deleted = aux;
-        this->start = this->start->getNext();
+        this->setStart(getStart()->getNext());
       }else{
         aux = this->getNodeBeforeOfPosition(position);
         
@@ -103,17 +128,17 @@ class List{
       }
 
 
-      this->size--;
+      this->removeSize();
       delete deleted;    
     }
 
     void print(){
       if(!this->getSize()){
-        std::cout << "Lista Vazia!" << '\n';
+        std::cout << "List is Empty!" << '\n';
         return;
       }
 
-      Node *aux = this->start;
+      Node *aux = this->getStart();
       for(int i = 0; i < this->getSize(); i++){
         std::cout << aux->getValue();
         std::cout << " - ";
@@ -139,17 +164,9 @@ int main(int argc, char *argv[]){
 
   l->print();
   l->remove(0);
-  l->print();
-  l->remove(3);
-  l->print();
-  l->remove(2);
-  l->print();
-  l->remove(0);
-  l->print();
-  l->remove(0);
-  l->print();
 
-
+  l->~List();
+  l->print();
 
   return 0;
 }
