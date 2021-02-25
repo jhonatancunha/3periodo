@@ -120,7 +120,6 @@ int main(int argc, char *argv[]){
   p->pop();
   p->print();
 
-  p->~Stack();
-  p->print();
+  delete p;
   return 0;
 }

@@ -165,8 +165,6 @@ int main(int argc, char *argv[]){
   l->print();
   l->remove(0);
 
-  l->~List();
-  l->print();
-
+  delete l;
   return 0;
 }
