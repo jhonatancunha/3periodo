@@ -52,14 +52,6 @@ class List{
       this->setStart(node);
     }
 
-    void addSize(){
-      this->size++;
-    }
-
-    void removeSize(){
-      this->size--;
-    }
-  
   public:
     List(){
       this->start = NULL;
@@ -69,10 +61,10 @@ class List{
     ~List(){
       Node* node = this->getStart();
       while(this->getSize()){
-        this->setStart(node->getNext());
+        this->start = node->getNext();
         delete node;
         node = this->getStart();
-        this->removeSize();
+        this->size--;
       }
     }
 
@@ -92,7 +84,7 @@ class List{
         aux->setNext(node);
       }
 
-      this->addSize();
+      this->size++;
     }
 
     void add(int value, int position){
@@ -108,7 +100,7 @@ class List{
         aux->setNext(node);
       }
 
-      this->addSize();
+      this->size++;
 
     }
 
@@ -128,11 +120,12 @@ class List{
       }
 
 
-      this->removeSize();
+      this->size--;
       delete deleted;    
     }
 
     void print(){
+    
       if(!this->getSize()){
         std::cout << "List is Empty!" << '\n';
         return;
@@ -153,7 +146,6 @@ class List{
 
 
 int main(int argc, char *argv[]){
-
   List *l = new List();
 
   l->add(2);
@@ -163,8 +155,9 @@ int main(int argc, char *argv[]){
   l->add(3, 3);
 
   l->print();
-  l->remove(0);
 
-  delete l;
+  l->~List();
+  l->print();
+
   return 0;
 }

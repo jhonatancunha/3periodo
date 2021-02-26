@@ -29,13 +29,10 @@ class Stack{
     Node* top;
     int size;
 
-    void addSize(){
-      this->size++;
+    void setTop(Node *node){
+      this->top = node;
     }
 
-    void removeSize(){
-      this->size--;
-    }
 
   public:
     Stack(){
@@ -46,10 +43,10 @@ class Stack{
     ~Stack(){
       Node* top = this->getTop();
       while(!this->isEmpty()){
-        setTop(top->getNext());
+        this->setTop(top->getNext());
         delete top;
         top = this->getTop();
-        this->removeSize();
+        this->size--;
       }
     }
 
@@ -61,13 +58,13 @@ class Stack{
       Node *node = new Node(value);
       node->setNext(this->getTop());
       this->setTop(node);
-      this->addSize();
+      this->size++;
     }
 
     void pop(){
       Node *removed = this->getTop();
       this->setTop(removed->getNext());
-      this->removeSize();
+      this->size--;
       delete removed;
     }
 
@@ -75,14 +72,10 @@ class Stack{
       return this->top;
     }
 
-    void setTop(Node *node){
-      this->top = node;
-    }
 
     int getSize(){
       return this->size;
     }
-
 
     void print(){
       if(this->isEmpty()){
@@ -105,21 +98,18 @@ class Stack{
 
 
 int main(int argc, char *argv[]){
+  Stack *s = new Stack();
 
-  Stack *p = new Stack();
+  s->push(2);
+  s->push(10);
+  s->push(50);
+  s->push(99);
+  s->push(3);
 
-  p->push(2);
-  
-  p->push(10);
-  p->push(50);
-  p->push(99);
-  p->push(3);
 
-  p->print();
-
-  p->pop();
-  p->print();
-
-  delete p;
+  s->pop();
+  s->print();
+  s->~Stack();
+  s->print();
   return 0;
 }
