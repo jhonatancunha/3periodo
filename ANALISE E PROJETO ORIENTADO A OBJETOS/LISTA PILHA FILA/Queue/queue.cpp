@@ -38,14 +38,8 @@ class Queue{
     }
 
     ~Queue(){
-      Node *aux = this->getFront();
-
-      while(!this->isEmpty()){
-        this->front = aux->getNext();
-        delete aux;
-        aux = this->getFront();
-        this->size--;
-      }
+      while(!this->isEmpty())
+        this->dequeue();
     }
 
     int isEmpty(){
@@ -115,7 +109,9 @@ int main(int argc, char *argv[]){
   p->enqueue(3);
 
   p->print();
-  p->~Queue();
+  
+
+  delete p;
   p->print();
   
   return 0;

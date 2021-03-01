@@ -41,13 +41,8 @@ class Stack{
     }
 
     ~Stack(){
-      Node* top = this->getTop();
-      while(!this->isEmpty()){
-        this->setTop(top->getNext());
-        delete top;
-        top = this->getTop();
-        this->size--;
-      }
+      while(!this->isEmpty())
+        this->pop();
     }
 
     int isEmpty(){
@@ -109,7 +104,7 @@ int main(int argc, char *argv[]){
 
   s->pop();
   s->print();
-  s->~Stack();
-  s->print();
+
+  delete s;
   return 0;
 }

@@ -59,13 +59,8 @@ class List{
     }
 
     ~List(){
-      Node* node = this->getStart();
-      while(this->getSize()){
-        this->start = node->getNext();
-        delete node;
-        node = this->getStart();
-        this->size--;
-      }
+      while(this->getSize())
+        this->remove(0);
     }
 
     int getSize(){
@@ -156,8 +151,7 @@ int main(int argc, char *argv[]){
 
   l->print();
 
-  l->~List();
-  l->print();
+  delete l;
 
   return 0;
 }
