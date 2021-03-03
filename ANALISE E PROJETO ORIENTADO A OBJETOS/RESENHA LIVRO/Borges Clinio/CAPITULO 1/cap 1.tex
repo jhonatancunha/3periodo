@@ -1,0 +1,149 @@
+\documentclass[a4paper, 12pt]{article}
+%%%%%%%%%%% Pacotes utilizados
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[normalem]{ulem} %para 
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows, arrows.meta}
+
+\usepackage{float}
+
+\usepackage[backend=biber, style=numeric]{biblatex}
+
+ \addbibresource{referencia.bib}
+
+
+%%%%%%%%%%%%%%% Configurações
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23cm}
+\setlength{\evensidemargin}{-1cm} \setlength{\oddsidemargin}{0.5cm}
+\setlength{\topmargin}{0cm}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Nome:} Jhonatan Guilherme de Oliveira Cunha}
+\rhead{\textbf{RA:} 2135590}
+\cfoot{\thepage}
+
+\hoffset= -0.4cm
+\voffset=-0.9cm
+
+
+\tikzstyle{class}=[
+	rectangle,
+	draw=black,
+	text centered,
+	anchor=north,
+	text=black
+]
+\tikzstyle{myarrow}=[->, diamond, thick]
+
+\tikzset{UMLRectangle/.style={class ,rectangle, text width=7em, text centered}}
+
+
+%%%%%%%%%%%%% Início do documento
+
+
+\begin{document}
+	
+	\hspace{5cm}
+	
+	\begin{large}
+		\begin{center}
+			\textbf{UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ}\newline
+			\textbf{CAMPUS CAMPO MOURÃO}
+		\end{center}
+	\end{large}
+	
+	\hspace{20cm}
+	
+	\begin{center}
+		\textbf{RESENHA CAPÍTULO 1 - ARTIGO ``Renato Borges e André Luiz Clinio. ``Programação Orientada a Objetos com C++''. Em: Apostila, Rio de Janeiro, 101p.''}
+	\end{center}
+
+	\hspace{10cm}
+	
+	\section{Qualidade de \textit{Software}?}
+	
+	\onehalfspacing
+	Quando almejamos utilizar a engenharia de \textit{software} a fim de construir um aplicativo de qualidade, devemos seguir um conjunto de fatores para atingir tal objetivo.
+	
+	Necessitamos distinguir dois tipos de qualidades, sendo elas: \textbf{qualidade externa de \textit{software}} (considera aspectos como eficiência, facilidade de uso, etc.) e \textbf{qualidade interna de \textit{software}} (pondera aspectos como legibilidade, modularidade, etc.).
+	
+	\subsection{Fatores de Qualidade Externa}
+	
+	Existem vários motivos que ressalta a qualidade externa de um \textit{software}, algumas são beneficiadas com o uso da \textbf{orientação por objetos}, sendo elas: corretude, robustez, extensibilidade, reuso e compatibilidade. Com objetivo de esclarecer o significado de tais qualidades, listaremos suas definições e de algumas outras:
+	
+	 \begin{itemize}
+	 	\item \textbf{Corretude:} O \textit{software} é capaz de produzir respostas adequadas e corretas cumprindo rigorosamente suas especificações.
+	 	
+	 	\item \textbf{Robustez:} Quando o \textit{software} é capaz de funcionar mesmo em condições incomuns.
+	 	
+	 	\item \textbf{Extensibilidade:} É a facilidade com que o \textit{software} pode ser modificado quando ocorrer alterações em suas especificações.
+	 
+		\item \textbf{Capacidade de Reuso:} Quando o \textit{software} pode ser reutilizado em novas aplicações, totalmente ou em partes.
+		
+		\item \textbf{Compatibilidade:} È a facilidade com que o \textit{software} pode ser combinado com outros.
+		
+		\item \textbf{Eficiência:} Quando o \textit{software} aproveita de maneira correta os recursos computacionais.
+		
+		\item \textbf{Portabilidade:} É a facilidade com que um \textit{software} pode ser compilado/executado em arquiteturas diferentes.
+		
+		\item \textbf{Facilidade de Uso:} O nível de clareza que seu \textit{software} oferece para o usuário.
+	\end{itemize}
+
+			Alguns aspectos citados acima possuem necessidades especificas para atingir tal qualidade, subdividindo-se em dois grupos:
+	
+	\begin{enumerate}
+		\item \textbf{Extensibilidade, Reuso e Compatibilidade:} Demandam de uma arquitetura flexível, modelos coerentes e design descentralizado.
+		
+		\item \textbf{Corretude e Robustez:} Necessitam de desenvolvimento utilizando especificações precisas de requisitos e limitações.
+	\end{enumerate}
+
+	\subsection{Fatores de Qualidade Interna}
+		
+		Analisando as necessidades citadas na seção anterior, percebemos que algumas demandam de flexibilidade. Desta forma introduzimos um conceito muito importante na qualidade interna de um \textit{software}.
+		
+		Como não existe uma definição precisa sobre modularidade, seguimos cinco critérios e cinco princípios para obter êxito durante o seu processo.
+		
+		\subsubsection{Critérios para Modularidade}
+		
+		Segue listado abaixo, critérios para se obter uma boa modularidade.
+		
+		\begin{itemize}
+			\item \textbf{Decomposição:} Dado um problema qualquer, necessitamos subdividir o mesmo em problemas menores, com objetivo de atingir a solução separadamente. Desta forma reduzimos a complexidade inicial, conectando-os utilizando uma estrutura simples.
+			
+			\item \textbf{Composição:} O critério é satisfeito quando podemos combinar elementos de ambientes diferentes de um \textit{software}, com objetivo de produzir novos sistemas. Um grande exemplo são as bibliotecas, que acabam oferecendo diversos códigos que podemos utilizar em nosso sistema.
+			
+			\item \textbf{Entendimento:} Quando os módulos de nosso \textit{software} podem ser compreendidos de forma separada, ou seja, com pouca dependência de módulos externos.
+			
+			\item \textbf{Continuidade:}  Ao realizar mudanças em nosso sistema, não deverá ocorrer reflexos em nossa arquitetura geral, ou seja, as alterações somente deverão ter impactos em um único ou poucos módulos.
+			
+			\item \textbf{Proteção:} Este critério é estabelecido quando os erros de tempo de execução não são propagados a todos os outros módulos, no máximo a poucos vizinhos. 
+		\end{itemize}
+	
+		\subsubsection{Princípios de Modularidade}
+		
+		Após estabelecer os critérios de modularidade, necessitamos listar os princípios desta característica. Segue abaixo estes conceitos:
+		
+		\begin{itemize}
+			\item \textbf{Linguística Modular:} Os módulos devem ser implementados seguindo as regras da linguagem utilizada de forma bem delimitada.
+			
+			\item \textbf{Poucas Interfaces:} Cada modulo deve se comunicar o mínimo possível com outros.
+			
+			\item \textbf{Pequenas Interfaces:} A quantidade de informações trocadas pelos módulos, deve ser a mínima possível.
+			
+			\item \textbf{Interfaces Explícitas:} Quando existir comunicação entre um modulo $A$ e $B$, as conexões devem ser bem claras.
+			
+			\item \textbf{Ocultação de Informação:} É intuitivo que as informações que irão sofrer alterações durante o programa deverão ser privadas. Para realizar alterações destes valores, devemos estabelecer comunicações bem implementadas.
+		\end{itemize}
+		
+	\nocite{*}
+	\printbibliography
+		
+\end{document}
