@@ -60,13 +60,13 @@
 		\end{center}
 	\end{large}
 	
-	\hspace{20cm}
+	\vspace{0.5cm}
 	
 	\begin{center}
 		\textbf{RESENHA CAPÍTULO 1 - ARTIGO ``Renato Borges e André Luiz Clinio. ``Programação Orientada a Objetos com C++''. Em: Apostila, Rio de Janeiro, 101p.''}
 	\end{center}
 
-	\hspace{10cm}
+	\vspace{0.5cm}
 	
 	\section{Qualidade de \textit{Software}?}
 	
@@ -140,8 +140,39 @@
 			
 			\item \textbf{Interfaces Explícitas:} Quando existir comunicação entre um modulo $A$ e $B$, as conexões devem ser bem claras.
 			
-			\item \textbf{Ocultação de Informação:} É intuitivo que as informações que irão sofrer alterações durante o programa deverão ser privadas. Para realizar alterações destes valores, devemos estabelecer comunicações bem implementadas.
+			\item \textbf{Ocultação de Informação:} É intuitivo que as informações que irão sofrer alterações durante o programa deverão ser privadas. Para realizar a mudança destes valores, devemos estabelecer comunicações bem implementadas.
 		\end{itemize}
+	
+	\section{O paradigma da Orientação a Objetos}
+		
+		Quando trabalhamos com orientação a objetos e precisamos representar uma abstração, classificamos o objeto de acordo com o comportamento esperado. Em outras palavas, devemos expressar este comportamento via operações que fazem sentido, e utilizando-as conseguimos realizar criações, modificações e leituras em nosso objeto.
+		
+		Antes de aprofundar o debate sobre orientação a objetos, precisamos de antemão, definir alguns componentes que compõe este paradigma.
+		
+		\subsection{Objeto}
+		
+		Descrevemos objetos como uma entidade, onde seu estado é definido por uma lista de atributos, e seus valores são únicos para cada instância do mesmo. Sua comunicação com outros objetos é feita via mensagens nas quais o mesmo sabe como respondê-las.
+		
+		\subsection{Mensagem}
+		
+		São ações representadas por identificadores, que o objeto receptor deverá executar. Podendo ser simples ou com algum parâmetro, afetando a maneira como o objeto receptor responderá a mensagem. Lembrando que o estado interno do objeto também influencia na resposta. 
+		
+		\subsection{Classe}
+		
+		Uma classe é o modelo para a criação de um objeto, onde estão descritos como serão os atributos do mesmo, as mensagens com os métodos que o objeto desta classe sabe responder.
+		
+		\subsection{Instância}
+		
+		São objetos onde suas propriedades são definidas por sua classe, e os valores de suas propriedades são únicos para cada instância.
+		
+		\subsection{Método}
+		
+		É uma lista de instruções que define como um objeto responderá a uma mensagem em particular, basicamente o mesmo consiste de expressões que enviam mais mensagens para um método correspondente de um objeto.
+		
+		\subsection{Explicando definições em C++}
+		
+		Como estamos utilizando a linguagem de programação C++ para aprender o paradigma orientado a objetos, podemos simplificar todas as definições acima utilizando jargões da linguagem: classes são estruturas, objetos são variáveis do tipo de alguma classe (instância de uma classe), métodos são funções de classes e enviar uma mensagem a um objeto é chamar um método de um objeto.
+		
 		
 	\nocite{*}
 	\printbibliography

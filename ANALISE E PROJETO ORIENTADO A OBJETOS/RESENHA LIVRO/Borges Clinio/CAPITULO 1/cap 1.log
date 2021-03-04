@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2 32-bit) (preloaded format=pdflatex 2021.2.22)  3 MAR 2021 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2 32-bit) (preloaded format=pdflatex 2021.2.22)  3 MAR 2021 22:55
 entering extended mode
 **"./cap 1.tex"
 (cap 1.tex
@@ -814,11 +814,6 @@ Package biblatex Info: ... file '"cap 1".bbl' found.
 Package biblatex Info: Reference section=0 on input line 52.
 Package biblatex Info: Reference segment=0 on input line 52.
 
-Overfull \hbox (131.43585pt too wide) in paragraph at lines 63--64
-[]  
- []
-
-
 Overfull \hbox (6.54912pt too wide) in paragraph at lines 89--90
 []\OT1/cmr/bx/n/12 Capacidade de Reuso: \OT1/cmr/m/n/12 Quando o \OT1/cmr/m/it/
 12 soft-ware \OT1/cmr/m/n/12 pode ser reu-ti-li-zado em no-vas aplicac~oes,
@@ -859,16 +854,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3] (cap 1.aux)
+[3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4] (cap 1.aux)
 Package logreq Info: Writing requests to '"cap 1".run.xml'.
 \openout1 = `"cap 1.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23087 strings out of 479334
- 480958 string characters out of 2866951
- 1209337 words of memory out of 3000000
- 40175 multiletter control sequences out of 15000+200000
+ 23088 strings out of 479334
+ 480966 string characters out of 2866951
+ 1210337 words of memory out of 3000000
+ 40176 multiletter control sequences out of 15000+200000
  409192 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,11n,116p,742b,1624s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -878,9 +882,9 @@ C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program
  Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmti12.pfb>
-Output written on "cap 1.pdf" (3 pages, 74775 bytes).
+Output written on "cap 1.pdf" (4 pages, 78169 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
+ 43 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
