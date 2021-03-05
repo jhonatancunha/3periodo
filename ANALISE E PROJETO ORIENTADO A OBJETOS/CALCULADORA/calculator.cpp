@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <math.h>
 
 enum DIGIT{ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE};
-enum OPERATION{ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION, SQRT, EQUAl};
+enum OPERATION{ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION, SQRT , EQUAl};
 enum STATE{gettingOperandOne, gettingOperandTwo};
 
 using namespace std;
@@ -17,9 +18,32 @@ class Display{
       this->result = 0;
     }
 
-    void setDigit(float number){
+    void addDigit(float number){
       cout << number;
     };
+
+    void addOperation(OPERATION op){
+      switch(op){
+        case ADDITION:
+          cout << '+';
+          break;
+        case SUBTRACTION:
+          cout << '-';
+          break;
+        case DIVISION:
+          cout << '/';
+          break;
+        case MULTIPLICATION:
+          cout << '*';
+          break;
+        case SQRT:
+          cout << "Sqrt of ";
+          break;
+        case EQUAl:
+          cout << '=';
+          break;
+      }
+    }
 
     void clear(){
       cout << "\n";
@@ -30,13 +54,13 @@ class Display{
 class CPU{
   private:
     int maxDigits = 8;
-    STATE state;
-    OPERATION mathOperator;
     Display *display;
     DIGIT *operandOne;
     DIGIT *operandTwo;
     int operandOneCounter;
     int operandTwoCounter;
+    OPERATION mathOperator;
+    STATE state;
 
     float convertOperand(DIGIT *operand, int operandCounter){
       float result = 0;
@@ -67,34 +91,34 @@ class CPU{
       this->display = display;
     }
 
-    void dispatchDigit(DIGIT number){
+    void dispatchDigit(DIGIT digit){
       if(this->operandOneCounter >= this->maxDigits) return;
       if(this->operandTwoCounter >= this->maxDigits) return;
 
-      this->display->setDigit(number);
+      this->display->addDigit(digit);
 
       if(this->state == gettingOperandOne){
-        this->operandOne[this->operandOneCounter] = number;
+        this->operandOne[this->operandOneCounter] = digit;
         this->operandOneCounter++;
       }else{
-        this->operandTwo[this->operandTwoCounter] = number;
+        this->operandTwo[this->operandTwoCounter] = digit;
         this->operandTwoCounter++;
       }
     }
 
     void setOperator(OPERATION op){
-      this->display->clear();
+      this->display->addOperation(op);
 
-      if(this->state == gettingOperandOne){
-        this->state = gettingOperandTwo;
-      }else{
-        this->calculate();
-      }
-
+      if(this->state == gettingOperandOne) this->state = gettingOperandTwo;
+      else this->calculate();
       this->mathOperator = op;
     }
 
-    void reset();
+    void reset(){
+      this->operandOneCounter = 0;
+      this->operandTwoCounter = 0;
+      this->state = gettingOperandOne;
+    }
 
     void calculate(){
       float resultOperandA = this->convertOperand(this->operandOne, this->operandOneCounter);
@@ -102,18 +126,20 @@ class CPU{
       
       switch (this->mathOperator){
       case ADDITION:
-        this->display->setDigit(resultOperandA+resultOperandB);
+        this->display->addDigit(resultOperandA+resultOperandB);
         break;
       case SUBTRACTION:
-        this->display->setDigit(resultOperandA-resultOperandB);
+        this->display->addDigit(resultOperandA-resultOperandB);
         break;
       case DIVISION:
-        this->display->setDigit(resultOperandA/resultOperandB);
+        this->display->addDigit(resultOperandA/resultOperandB);
         break;
       case MULTIPLICATION:
-        this->display->setDigit(resultOperandA*resultOperandB);
+        this->display->addDigit(resultOperandA*resultOperandB);
         break;
       case SQRT:
+          if(resultOperandA > 0) this->display->addDigit(sqrt(resultOperandB));
+          else this->display->addDigit(sqrt(resultOperandB));
         break;
       }
     }
@@ -241,17 +267,41 @@ class Calculator{
     OperationKeyBoard *getOperationKeyBoard(){
       return this->operationKeyBoard;
     }
+
+    void pressCE(){
+      this->cpu->reset();
+      this->display->clear();
+    }
 };
 
 int main(int argc, char* argv[]){
 
   Calculator *calc = new Calculator();
 
+  //14+2=6
   calc->getNumericKeyBoard()->pressOne();
   calc->getNumericKeyBoard()->pressFour();
   calc->getOperationKeyBoard()->pressAddition();
   calc->getNumericKeyBoard()->pressTwo();
   calc->getOperationKeyBoard()->pressEquals();
+  calc->pressCE();
+
+  //1288*20=25760
+  calc->getNumericKeyBoard()->pressOne();
+  calc->getNumericKeyBoard()->pressTwo();
+  calc->getNumericKeyBoard()->pressEight();
+  calc->getNumericKeyBoard()->pressEight();
+  calc->getOperationKeyBoard()->pressMultiplication();
+  calc->getNumericKeyBoard()->pressTwo();
+  calc->getNumericKeyBoard()->pressZero();
+  calc->getOperationKeyBoard()->pressEquals();
+  calc->pressCE();
+
+  //√4 = 2
+  calc->getOperationKeyBoard()->pressSquareRoot();
+  calc->getNumericKeyBoard()->pressFour();
+  calc->getOperationKeyBoard()->pressEquals();
+  calc->pressCE();
 
   return 0;
 }
