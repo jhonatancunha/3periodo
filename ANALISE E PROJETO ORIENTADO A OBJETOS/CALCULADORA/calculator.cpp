@@ -3,12 +3,13 @@
 #include <string>
 #include <math.h>
 
-enum DIGIT{ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE};
+enum DIGIT{ZERO , ONE , TWO , THREE , FOUR , FIVE , SIX , SEVEN , EIGHT , NINE };
 enum OPERATION{ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION, SQRT , EQUAl};
 enum STATE{gettingOperandOne, gettingOperandTwo};
 
 using namespace std;
 
+//OK
 class Display{
   private:
     float result;
@@ -49,8 +50,14 @@ class Display{
       cout << "\n";
       this->result = 0;
     };
+
+    void addDot(){
+      cout << '.';
+    }
+
 };
 
+//OK
 class CPU{
   private:
     int maxDigits = 8;
@@ -61,8 +68,10 @@ class CPU{
     int operandTwoCounter;
     OPERATION mathOperator;
     STATE state;
+    int dotCounterOne;
+    int dotCounterTwo;
 
-    float convertOperand(DIGIT *operand, int operandCounter){
+    float convertOperand(DIGIT *operand, int operandCounter, int dotCounter){
       float result = 0;
 
       for(int i = 0; i < operandCounter; i++){
@@ -70,7 +79,10 @@ class CPU{
         result += operand[i];
       }
 
-      return result;
+      if(dotCounter > 0)
+        return result*(pow(10, -(operandCounter-dotCounter)));
+      else 
+        return result;
     }
 
   public:
@@ -80,6 +92,8 @@ class CPU{
       this->operandTwo = new DIGIT[this->maxDigits];
       this->operandOneCounter = 0;
       this->operandTwoCounter = 0;
+      this->dotCounterOne = 0;
+      this->dotCounterTwo = 0;
     }
 
     ~CPU(){
@@ -106,23 +120,25 @@ class CPU{
       }
     }
 
-    void setOperator(OPERATION op){
-      this->display->addOperation(op);
+    void setOperator(OPERATION mathOperator){
+      this->display->addOperation(mathOperator);
 
       if(this->state == gettingOperandOne) this->state = gettingOperandTwo;
       else this->calculate();
-      this->mathOperator = op;
+      this->mathOperator = mathOperator;
     }
 
     void reset(){
       this->operandOneCounter = 0;
       this->operandTwoCounter = 0;
       this->state = gettingOperandOne;
+      this->dotCounterOne = 0;
+      this->dotCounterTwo = 0;
     }
 
     void calculate(){
-      float resultOperandA = this->convertOperand(this->operandOne, this->operandOneCounter);
-      float resultOperandB = this->convertOperand(this->operandTwo, this->operandTwoCounter);
+      float resultOperandA = this->convertOperand(this->operandOne, this->operandOneCounter, this->dotCounterOne);
+      float resultOperandB = this->convertOperand(this->operandTwo, this->operandTwoCounter, this->dotCounterTwo);
       
       switch (this->mathOperator){
       case ADDITION:
@@ -143,8 +159,18 @@ class CPU{
         break;
       }
     }
+
+    void setDotCounter(){
+      this->display->addDot();
+
+      if(this->state == gettingOperandOne)
+        this->dotCounterOne = this->operandOneCounter;
+      else
+        this->dotCounterTwo = this->operandTwoCounter;
+    }
 };
 
+//OK
 class OperationKeyBoard{
   private:
     CPU *cpu;
@@ -182,6 +208,7 @@ class OperationKeyBoard{
 
 };
 
+//OK
 class NumericKeyBoard{
   private:
     CPU *cpu;
@@ -232,8 +259,13 @@ class NumericKeyBoard{
     void pressNine(){
       this->cpu->dispatchDigit(NINE);
     };
+
+    void pressDot(){
+      this->cpu->setDotCounter();
+    }
 };
 
+//OK
 class Calculator{
   private:
     CPU *cpu;
@@ -278,16 +310,20 @@ int main(int argc, char* argv[]){
 
   Calculator *calc = new Calculator();
 
-  //14+2=6
+  //1.4+2.5=3.9
   calc->getNumericKeyBoard()->pressOne();
+  calc->getNumericKeyBoard()->pressDot();
   calc->getNumericKeyBoard()->pressFour();
   calc->getOperationKeyBoard()->pressAddition();
   calc->getNumericKeyBoard()->pressTwo();
+  calc->getNumericKeyBoard()->pressDot();
+  calc->getNumericKeyBoard()->pressFive();
   calc->getOperationKeyBoard()->pressEquals();
   calc->pressCE();
 
-  //1288*20=25760
+  //1.288*20=25.76
   calc->getNumericKeyBoard()->pressOne();
+  calc->getNumericKeyBoard()->pressDot();
   calc->getNumericKeyBoard()->pressTwo();
   calc->getNumericKeyBoard()->pressEight();
   calc->getNumericKeyBoard()->pressEight();
@@ -297,9 +333,11 @@ int main(int argc, char* argv[]){
   calc->getOperationKeyBoard()->pressEquals();
   calc->pressCE();
 
-  //√4 = 2
+  //√4.2 = 2.04939
   calc->getOperationKeyBoard()->pressSquareRoot();
   calc->getNumericKeyBoard()->pressFour();
+  calc->getNumericKeyBoard()->pressDot();
+  calc->getNumericKeyBoard()->pressTwo();
   calc->getOperationKeyBoard()->pressEquals();
   calc->pressCE();
 
