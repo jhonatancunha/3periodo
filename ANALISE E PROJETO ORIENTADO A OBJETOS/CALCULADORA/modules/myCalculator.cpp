@@ -1,8 +1,7 @@
-#include "myCalc.h"
+#include "myCalculator.h"
 #include <cstdlib>
+
 // PUBLIC (+)
-
-
 MyCalculator::MyCalculator(){
   this->display = new MyDisplay();
   this->cpu = new MyCPU();

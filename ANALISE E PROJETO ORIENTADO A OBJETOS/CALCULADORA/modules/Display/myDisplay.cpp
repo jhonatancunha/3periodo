@@ -1,4 +1,4 @@
-#include "myCalc.h"
+#include "../myCalculator.h"
 
 MyDisplay::MyDisplay(){
   this->result = 0;

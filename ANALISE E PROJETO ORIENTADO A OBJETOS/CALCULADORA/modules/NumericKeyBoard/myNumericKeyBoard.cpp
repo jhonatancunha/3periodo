@@ -1,4 +1,4 @@
-#include "myCalc.h"
+#include "../myCalculator.h"
 
 // PUBLIC (+)
 MyNumericKeyBoard::MyNumericKeyBoard(){};

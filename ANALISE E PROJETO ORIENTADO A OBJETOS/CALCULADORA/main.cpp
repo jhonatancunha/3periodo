@@ -1,6 +1,5 @@
 #include <iostream>
-#include "myCalc.h"
-
+#include "modules/myCalculator.h"
 
 int main(){
   MyCalculator *c = new MyCalculator();

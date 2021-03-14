@@ -1,4 +1,4 @@
-#include "myCalc.h"
+#include "../myCalculator.h"
 #include <math.h>
 #include <exception>
 #include <string>
