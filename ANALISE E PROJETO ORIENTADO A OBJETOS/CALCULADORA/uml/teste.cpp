@@ -2,9 +2,11 @@
 #include <cstdlib>
 #include <string>
 #include <math.h>
+#include <stdexcept>
+
 
 enum DIGIT{ZERO , ONE , TWO , THREE , FOUR , FIVE , SIX , SEVEN , EIGHT , NINE };
-enum OPERATION{ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION, SQRT , EQUAl};
+enum OPERATION{ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION, SQRT , EQUAl, NONE};
 enum STATE{gettingOperandOne, gettingOperandTwo};
 
 using namespace std;
@@ -106,7 +108,7 @@ class CPU{
     }
 
     void dispatchDigit(DIGIT digit){
-      if(this->operandOneCounter >= this->maxDigits) return;
+      if(this->operandOneCounter >= this->maxDigits) throw overflow_error();
       if(this->operandTwoCounter >= this->maxDigits) return;
 
       this->display->addDigit(digit);

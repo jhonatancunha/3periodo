@@ -1,0 +1,278 @@
+%%%%%%%%%%%%%%% Pacotes utilizados
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[normalem]{ulem} %para 
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage{textcomp}
+
+%%%%%%%%%%%%%%%
+\addbibresource{referencia.bib}
+
+%%%%%%%%%%%%%%% Configurações
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23cm}
+\setlength{\evensidemargin}{-1cm} 
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\topmargin}{0cm}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Nome:} Jhonatan Guilherme de Oliveira Cunha}
+\rhead{\textbf{RA:} 2135590}
+\cfoot{\thepage}
+\hoffset= -0.4cm
+\voffset=-0.9cm
+
+%%%%%%%%%%%%%%%CODIGO
+\renewcommand{\lstlistingname}{Código}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,	
+}
+
+
+\lstset{
+	basicstyle=\ttfamily,
+	literate={~}{{\fontfamily{ptm}\selectfont \textasciitilde}}1
+}
+
+\def\Cplusplus{C\raisebox{0.5ex}{\tiny\textbf{++}} }
+%%%%%%%%%%%%% Início do documento
+\begin{document}
+	
+	\hspace{5cm}
+	
+	\begin{large}
+		\begin{center}
+			\textbf{UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ}\newline
+			\textbf{CAMPUS CAMPO MOURÃO}
+		\end{center}
+	\end{large}
+	
+	\vspace{0.5cm}
+	
+	\begin{center}
+		\textbf{RESENHA CAPÍTULO 3 E 5 - ARTIGO ``Renato Borges e André Luiz Clinio. ``Programação Orientada a Objetos com \Cplusplus''. Em: Apostila, Rio de Janeiro, 101p.''}
+	\end{center}
+
+	\vspace{0.5cm}
+	
+	\section{Encapsulamento}
+	\onehalfspacing
+	
+	No paradigma orientado a objetos, todo TAD' é definido por sua interface, em C++ utilizamos classes abstratas criar as interfaces. As TAD's' podem possuir implementações diferentes, porém, são sempre utilizados da mesma forma.
+	
+	Os atributos não presentes na interface, usados durante a implementação, devem ser protegidos, ou seja, o acesso deve ser exclusivo através da interface definida. A ação de privar alguns atributos é chamada de \textbf{encapsulamento}. Veja a seguir os controles de acessos disponíveis no paradigma OO.
+	
+	\subsection{Controle de Acesso}
+	
+	Ao utilizar classes, precisamos esconder o máximo de informações possíveis, então definimos restrições de como nossos dados irão ser manipulados. Utilizamos três palavras reservadas para aplicar as restrições necessárias em nosso algoritmo, sendo elas:
+	
+	\begin{itemize}
+		\item \textbf{private:} Utilizamos quando o atributo em questão somente poderá ser manipulado utilizando métodos da classe.
+		
+		\item \textbf{protected:} Alterações são realizadas a partir de métodos de classes derivadas.
+		
+		\item \textbf{public:} Poderemos realizar alterações via instâncias de objetos da classe.
+	\end{itemize}
+
+	Veja no Código \ref{exemploControleAcesso} um exemplo de código onde utilizamos controles de acessos em uma classe.
+	
+	\vspace{5cm}
+	
+	\begin{lstlisting}[language=C++, style=mystyle, caption={Exemplo de classe utilizando controle de acesso}, label=exemploControleAcesso]		
+		class Controle{
+			private:
+				int a;
+			protected:
+				int b;
+			public:
+				int getA();
+				void setA(int number);
+		};
+	\end{lstlisting}
+
+	\subsubsection{Diferenciando controle de acesso em Struct e Class}
+	
+	Em algumas situações podemos encontrar códigos utilizando a palavra reservada \textbf{struct} no lugar de \textbf{class}. A diferença entre elas é o nível de proteção caso nenhum especificador de controle for usado. Veja a diferença no Código \ref{diferencaClassStruct}
+	
+	\begin{lstlisting}[language=C++, style=mystyle, caption={Diferença nível acesso struct e class.}, label=diferencaClassStruct, extendedchars=true]		
+		struct A {
+			int a; // publico
+		};
+	
+		class B {
+			int a; // privado
+		};
+	\end{lstlisting}
+
+	Como as interfaces de classes são menores possíveis, utilizaremos sempre a palavra reservada \textbf{\textit{class}}.
+	
+	\subsubsection{Classes e Funções \textbf{\textit{friend}}}
+	
+	Quando almejamos ter acesso irrestrito de dados protegidos de outra classe, podemos utilizar a palavra reservada \textbf{\textit{friend}}. Ao declarar uma função como \textit{\textbf{friend}} em uma classe, a mesma recebe permissão de acesso aos membros \textit{\textbf{private}} e \textit{\textbf{protected}} desta classe.
+	
+	\section{Construtores e Destrutores}
+	
+	\subsection{Construtor}
+	
+	É um método utilizado para criar novas instâncias de objetos, chamado automaticamente via operador \textbf{\textit{new}}, onde garantimos que o objeto recém criado seja consistente. Quando não declaramos um construtor em uma classe, o compilador gera um construtor vazio. 
+	
+	Um outro tipo de construtor criado pelo compilador é o de cópia, onde o mesmo recebe uma referencia da própria classe como parâmetro, sendo utilizado para criar novos objetos a partir de outro do mesmo tipo.
+	
+	Os construtores podem ser declarados como privados, porém, sua chamada será reservada apenas dentro de métodos da própria classe, ou em classes e funções \textbf{\textit{friend}}.
+	
+	\subsection{Destrutor}
+	
+	Este método é chamado quando automaticamente utilizando o operador \textbf{\textit{delete}}. O mesmo é usualmente utilizado para liberar recursos alocados pelo objeto.
+	
+	Os destrutores também poderão ser declarados como privado, porém, sua chamada será reservada apenas para quem tiver acesso, da mesma forma como ocorre nos construtores privados.
+	
+	\subsection{Exemplo de uso}
+	
+	Os dois métodos especiais não possuem nenhum tipo de retorno, porém, o construtor poderá receber parâmetros, enquanto o destrutor não.
+	
+	Considerando uma classe Aluno, declaramos seu construtor utilizando seu nome, ou seja, um método com nome \textbf{Aluno}. Enquanto seu destrutor é denominado utilizando o nome da classe, porém, precedido de $\sim$ (til), ou seja, um método com nome \textbf{\textasciitilde Aluno}. Veja no Código \ref{algoritmoConstrutorDestrutor} um exemplo mais claro.
+	
+	\begin{lstlisting}[language=C++, style=mystyle, caption={Exemplo de declaração do construtor e destrutor.}, label=algoritmoConstrutorDestrutor, extendedchars=true]		
+		class Aluno{
+				int idade;
+				int ra;
+			public:
+				Aluno(int idade, int ra);
+				~Aluno();
+				int getIdade();
+				int getRA();
+		};
+	\end{lstlisting}
+	
+	\subsection{Chamada de Destrutores e Construtores}
+	
+	Os construtores como mencionado acima, são chamados automaticamente quando o objeto for criado. Enquanto os destrutores são chamados utilizando o operador \textbf{\textit{delete}}. Veja no Código \ref{chamadaDestrutorConstrutor} um exemplo.
+	
+	\vspace{0.2cm}
+	\begin{lstlisting}[language=C++, style=mystyle, caption={Chamada de construtor e destrutor.}, label=chamadaDestrutorConstrutor, extendedchars=true]		
+		class A{
+			A();
+			~A();
+		};
+	
+		void main(){
+			A *instancia = new A(); // chamando construtor
+			
+			delete instancia; // chamando destrutor
+		}
+	\end{lstlisting}
+	
+	
+	\section{Herança}
+		
+		O conceito de herança é muito importante quando tocamos no assunto de reutilização de códigos, na linguagem de programação \Cplusplus  o termo se aplica somente em classes. Desta forma, conseguimos herdar características e comportamentos de outras classes aumentando a flexibilidade a um custo baixo.
+		
+		Utilizando classes simples, podemos derivar em outras classes cada vez mais complexas, com objetivo de resolver determinado problema.
+		
+		\subsection{Exemplo Herança}
+		
+		Com objetivo de esclarecer o conceito mencionado acima, apresentaremos um exemplo de código. Veja no Código \ref{codigoHeranca} onde consideramos a classe \textbf{Caixa} sendo a classe base, enquanto a classe derivada denominados de \textbf{CaixaColorida}.
+		
+		\vspace{0.1cm}
+		\begin{lstlisting}[language=C++, style=mystyle, caption={Exemplo de herança.}, label=codigoHeranca, extendedchars=true]		
+			class Caixa {
+				public:
+					int altura, largura;
+					void Altura(int a); {
+						this->altura = a; 
+					}
+					void Largura(int l){
+						this->largura = l;
+					}
+			};
+		
+			class CaixaColorida : public Caixa{
+				public:
+					int cor;
+					void Cor(int c){
+						this->cor = c;
+					}
+			};
+		
+			void main(){
+				CaixaColorida *cc = new CaixaColorida();
+				cc->Cor(5);
+				cc->Largura(3); // herdado
+				cc->Altura(50); // herdado
+				delete cc;
+			}
+		\end{lstlisting}
+		
+		Analisando o código acima, foi possível notar que conseguimos utilizar métodos herdados da classe base (pai).
+		
+		\subsection{Herança Pública $\times$ Herança Privada}
+		
+		Reanalizando o Código \ref{codigoHeranca}, podemos perceber que sua herança é caracterizada como sendo do tipo \textbf{public}. Porém, nossas heranças podem ser definidas em dois especificadores de acesso, sendo eles:
+		
+		\begin{itemize}
+			\item \textbf{private:} todos os atributos herdados tornam-se \textbf{private} na classe derivada.
+			
+			\item \textbf{public:} os atributos herdados do tipo \textbf{public} continuaram do tipo \textbf{public}, da mesma forma ocorre com os do tipo \textbf{protected}.
+		\end{itemize}
+	
+		A linguagem \Cplusplus utiliza como padrão a especificação de acesso \textbf{private} para heranças.
+		
+		
+		\subsection{Características não herdadas e herdadas}
+		
+		Existem algumas informações que não são herdadas pela classe derivada, segue uma lista de algumas delas:
+		
+		\begin{itemize}
+			\item Construtores
+			\item Destrutores
+			\item Operadores \textbf{new}
+			\item Operadores de atribuição (=)
+			\item Relacionamentos \textbf{\textit{friend}}
+			\item Atributos privados
+		\end{itemize}
+	
+		Em contrapartida, existem aqueles que são herdados pela classe base:
+		
+		\begin{itemize}
+			\item Membros públicos
+			\item Membros protegidos 
+		\end{itemize}
+	
+		\subsection{Funcionamento de Construtores e Destrutores}
+		
+		Quando instanciamos uma classe que é derivada de outra classe base, a ordem de chamada dos construtores na linguagem de programação \Cplusplus é fixa. Sua sequência de invocação sera primeiramente a classe base, consecutivamente todas as outras classes derivadas, até atingir uma classe sem herdeiros.
+		
+		De forma antagônica, os destrutores são invocados partindo de uma classe sem herdeiros, desalocando tudo da memoria, até atingir uma classe base (não derivada).
+		
+\end{document}
