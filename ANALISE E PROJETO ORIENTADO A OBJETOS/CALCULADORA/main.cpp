@@ -2,14 +2,17 @@
 #include "modules/myCalculator.h"
 
 int main(){
-  MyCalculator *c = new MyCalculator();
+  CPU *cpu = new MyCPU();
+  Display *display = new MyDisplay();
+  NumericKeyBoard *numericKeyBoard = new MyNumericKeyBoard();
+  OperationKeyBoard *opKeyBoard = new MyOperationKeyBoard();
 
+  MyCalculator *c = new MyCalculator(cpu, display, numericKeyBoard, opKeyBoard);
 
   //14+25=39
   c->getNumericKeyBoard()->pressOne();
   c->getNumericKeyBoard()->pressFour();
   c->getOperationKeyBoard()->pressAddition();
-
   c->getNumericKeyBoard()->pressTwo();
   c->getNumericKeyBoard()->pressFive();
   c->getOperationKeyBoard()->pressEquals();
@@ -31,5 +34,7 @@ int main(){
   c->getNumericKeyBoard()->pressFour();
   c->getOperationKeyBoard()->pressEquals();
   c->pressCE();
+
+
   return 0;
 }

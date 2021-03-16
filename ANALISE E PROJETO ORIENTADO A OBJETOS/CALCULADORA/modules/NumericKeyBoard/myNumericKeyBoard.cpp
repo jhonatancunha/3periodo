@@ -3,7 +3,7 @@
 // PUBLIC (+)
 MyNumericKeyBoard::MyNumericKeyBoard(){};
 
-void MyNumericKeyBoard::setCPU(MyCPU *cpu){
+void MyNumericKeyBoard::setCPU(CPU *cpu){
   this->cpu = cpu;
 }
 

@@ -6,13 +6,12 @@ enum OPERATION{ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION, SQRT , EQUAl, NO
 class Display{
   public:
     virtual void addDigit(DIGIT number) = 0;
-    // virtual void addOperation(OPERATION op) = 0;
     virtual void clear() = 0;
 };
 
 class CPU{
   public:
-    virtual void setDisplay(Display *display){};
+    virtual void setDisplay(Display *display) = 0;
     virtual void dispatchDigit(DIGIT digit) = 0;
     virtual void setOperator(OPERATION mathOperator) = 0;
     virtual void reset() = 0;
@@ -21,7 +20,7 @@ class CPU{
 
 class OperationKeyBoard{
   public:
-    virtual void setCPU(CPU *cpu){};
+    virtual void setCPU(CPU *cpu) = 0;
     virtual void pressAddition() = 0;
     virtual void pressDivision() = 0;
     virtual void pressMultiplication() = 0;
@@ -32,7 +31,7 @@ class OperationKeyBoard{
 
 class NumericKeyBoard{
   public:
-    virtual void setCPU(CPU *cpu){};
+    virtual void setCPU(CPU *cpu) = 0;
     virtual void pressZero() = 0;
     virtual void pressOne() = 0;
     virtual void pressTwo() = 0;
@@ -47,6 +46,10 @@ class NumericKeyBoard{
 
 class Calculator{
   public:
+    virtual void setCPU(CPU *cpu) = 0;
+    virtual void setDisplay(Display *cpu) = 0;
+    virtual void setNumericKeyBoard(NumericKeyBoard *cpu) = 0;
+    virtual void setOperationKeyBoard(OperationKeyBoard *cpu) = 0;
     virtual NumericKeyBoard* getNumericKeyBoard() = 0;
     virtual OperationKeyBoard* getOperationKeyBoard() = 0;
     virtual void pressCE() = 0;

@@ -2,15 +2,16 @@
 #include <cstdlib>
 
 // PUBLIC (+)
-MyCalculator::MyCalculator(){
-  this->display = new MyDisplay();
-  this->cpu = new MyCPU();
-  this->numericKeyBoard = new MyNumericKeyBoard();
-  this->operationKeyBoard = new MyOperationKeyBoard();
-
-  this->cpu->setDisplay(this->display);
-  this->numericKeyBoard->setCPU(this->cpu);
-  this->operationKeyBoard->setCPU(this->cpu);
+MyCalculator::MyCalculator(CPU *cpu, Display *display, NumericKeyBoard *numericKeyBoard, OperationKeyBoard *operationKeyBoard){
+  
+  this->setCPU(cpu);
+  this->setDisplay(display);
+  this->setNumericKeyBoard(numericKeyBoard);
+  this->setOperationKeyBoard(operationKeyBoard);
+  
+  this->cpu->setDisplay(display);
+  this->numericKeyBoard->setCPU(cpu);
+  this->operationKeyBoard->setCPU(cpu);
 }
 
 MyCalculator::~MyCalculator(){
@@ -20,11 +21,27 @@ MyCalculator::~MyCalculator(){
   delete this->operationKeyBoard;
 }
 
-MyNumericKeyBoard* MyCalculator::getNumericKeyBoard(){
+void MyCalculator::setCPU(CPU *cpu){
+  this->cpu = cpu;
+}
+
+void MyCalculator::setDisplay(Display *display){
+  this->display = display;
+}
+
+void MyCalculator::setNumericKeyBoard(NumericKeyBoard *numericKeyBoard){
+  this->numericKeyBoard = numericKeyBoard;
+}
+
+void MyCalculator::setOperationKeyBoard(OperationKeyBoard *operationKeyBoard){
+  this->operationKeyBoard = operationKeyBoard;
+}
+
+NumericKeyBoard* MyCalculator::getNumericKeyBoard(){
   return this->numericKeyBoard;
 }
 
-MyOperationKeyBoard* MyCalculator::getOperationKeyBoard(){
+OperationKeyBoard* MyCalculator::getOperationKeyBoard(){
   return this->operationKeyBoard;
 }
 

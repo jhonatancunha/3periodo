@@ -15,7 +15,7 @@ class MyDisplay: public Display{
 class MyCPU: public CPU{
   private:
     static const int maxDigits = 8;
-    MyDisplay *display;
+    Display *display;
     DIGIT operandOne[maxDigits];
     DIGIT operandTwo[maxDigits];
     int operandOneCounter;
@@ -27,7 +27,7 @@ class MyCPU: public CPU{
 
   public:
     MyCPU();
-    void setDisplay(MyDisplay *display);
+    void setDisplay(Display *display);
     void dispatchDigit(DIGIT digit);
     void setOperator(OPERATION mathOperator);
     void reset();
@@ -36,10 +36,10 @@ class MyCPU: public CPU{
 
 class MyOperationKeyBoard: public OperationKeyBoard{
   private:
-    MyCPU *cpu;
+    CPU *cpu;
   public:
     MyOperationKeyBoard();
-    void setCPU(MyCPU *cpu);
+    void setCPU(CPU *cpu);
     void pressAddition();
     void pressDivision();
     void pressMultiplication();
@@ -50,10 +50,10 @@ class MyOperationKeyBoard: public OperationKeyBoard{
 
 class MyNumericKeyBoard: public NumericKeyBoard{
   private:
-    MyCPU *cpu;
+    CPU *cpu;
   public:
     MyNumericKeyBoard();
-    virtual void setCPU(MyCPU *cpu);
+    void setCPU(CPU *cpu);
     void pressZero();
     void pressOne();
     void pressTwo();
@@ -68,15 +68,19 @@ class MyNumericKeyBoard: public NumericKeyBoard{
 
 class MyCalculator: public Calculator{
   private:
-    MyCPU *cpu;
-    MyDisplay *display;
-    MyNumericKeyBoard *numericKeyBoard;
-    MyOperationKeyBoard *operationKeyBoard;
+    CPU *cpu;
+    Display *display;
+    NumericKeyBoard *numericKeyBoard;
+    OperationKeyBoard *operationKeyBoard;
 
   public:
-    MyCalculator();
+    MyCalculator(CPU *cpu, Display *display, NumericKeyBoard *numericKeyBoard, OperationKeyBoard *OperationKeyBoard);
     ~MyCalculator();
-    MyNumericKeyBoard* getNumericKeyBoard();
-    MyOperationKeyBoard* getOperationKeyBoard();
+    void setCPU(CPU *cpu);
+    void setDisplay(Display *display);
+    void setNumericKeyBoard(NumericKeyBoard *numericKeyBoard);
+    void setOperationKeyBoard(OperationKeyBoard *operationKeyBoard);
+    NumericKeyBoard* getNumericKeyBoard();
+    OperationKeyBoard* getOperationKeyBoard();
     void pressCE();
 };

@@ -10,7 +10,7 @@ MyCPU::MyCPU(){
   this->mathOperator = NONE;
 }
 
-void MyCPU::setDisplay(MyDisplay *display){
+void MyCPU::setDisplay(Display *display){
   this->display = display;
 }
 

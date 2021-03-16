@@ -3,7 +3,7 @@
 // PUBLIC (+)
 MyOperationKeyBoard::MyOperationKeyBoard(){};
 
-void MyOperationKeyBoard::setCPU(MyCPU *cpu){
+void MyOperationKeyBoard::setCPU(CPU *cpu){
   this->cpu = cpu;
 }
 
