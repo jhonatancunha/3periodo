@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 
 enum DIGIT{ZERO , ONE , TWO , THREE , FOUR , FIVE , SIX , SEVEN , EIGHT , NINE};

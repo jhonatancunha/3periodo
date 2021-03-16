@@ -1,7 +1,6 @@
-// #pragma once
+#pragma once
 #include "interface.h"
 #include <iostream>
-// #include <cstdlib>
 
 class MyDisplay: public Display{
   private:
