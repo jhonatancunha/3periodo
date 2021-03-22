@@ -23,15 +23,15 @@ class MyCpu : public Cpu{
     int operandOneCounter;
     int operandTwoCounter;
     Operation operation;
+    Signal signal;
 
     int digitToInt(Digit *operand, int count);
-    void intToDigit(int result);
+    void intToDigit(int number, Digit *digit, int *digitLenght, Signal *signal);
     void calculate();
     
   public:
     MyCpu();
     void setDisplay(Display* display); // Conecta uma tela para a CPU
-
     void receiveDigit(Digit digit); // Envia um dígito para o operando corrente
     void receiveOperation(Operation operation); // Envia a operação e troca o operando corrente
     void cancel(); // Cancela os dígitos do operando corrente

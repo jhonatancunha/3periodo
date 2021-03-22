@@ -43,10 +43,10 @@ void MyDisplay::addDecimalSeparator(){
 void MyDisplay::setSignal(Signal signal){
   switch(signal){
     case POSITIVE:
-      std::cout <<"  0  \n  0  \n00000\n  0  \n  0  " ;
+      std::cout <<"  0  \n  0  \n00000\n  0  \n  0  \n" ;
       break;
     case NEGATIVE:
-      std::cout << "00000";
+      std::cout << "00000\n";
       break;
   };
 }

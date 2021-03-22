@@ -47,7 +47,15 @@ class CpuTest{
           cpu->receiveDigit(SIX);
           
           cpu->receiveOperation(EQUAL);
+
+          cpu->receiveDigit(ONE);
           
+          cpu->receiveOperation(EQUAL);
+
+          cpu->receiveOperation(MULTIPLICATION);
+          cpu->receiveDigit(TWO);
+          cpu->receiveOperation(EQUAL);
+
           cpu->reset();
     };
 };

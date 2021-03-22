@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
   Calculator *myCalc = new MyCalculator(myCpu, myDisplay, numberKey, opKey);
   
   
-  CalculatorTest calcTest;
-  calcTest.run(myCalc);
+  CalculatorTest::run(myCalc);
+
   return 0;
 }

@@ -12,7 +12,6 @@ MyCalculator::MyCalculator(Cpu *cpu, Display *display, NumericKeyBoard *numericK
   this->cpu->setDisplay(display);
   this->numericKeyBoard->setCpu(cpu);
   this->operationKeyBoard->setCpu(cpu);
-
 }
 
 MyCalculator::~MyCalculator(){
