@@ -3,10 +3,10 @@
  * Author: Lucio Valentin
  * Version: 20210316
  */
-#include "interface.h"
+#include "calculator.h"
 #include <iostream>
 
-class MyDisplay : public Display{
+class JhonatanDisplay : public Display{
   public:
     void addDigit(Digit number); // Adiciona um dígito na tela
     void addDecimalSeparator(); // Aciona o separador de casas decimais
@@ -14,7 +14,7 @@ class MyDisplay : public Display{
     void clear(); // Limpa todos os dígitos
 };
 
-class MyCpu : public Cpu{
+class JhonatanCpu : public Cpu{
   private:
     static const int maxDigits = 8;
     Display *display;
@@ -30,7 +30,7 @@ class MyCpu : public Cpu{
     void calculate();
     
   public:
-    MyCpu();
+    JhonatanCpu();
     void setDisplay(Display* display); // Conecta uma tela para a CPU
     void receiveDigit(Digit digit); // Envia um dígito para o operando corrente
     void receiveOperation(Operation operation); // Envia a operação e troca o operando corrente
@@ -39,7 +39,7 @@ class MyCpu : public Cpu{
 };
 
 
-class MyOperationKeyBoard : public OperationKeyBoard{
+class JhonatanOperationKeyBoard : public OperationKeyBoard{
   private:
     Cpu *cpu;
 
@@ -53,7 +53,7 @@ class MyOperationKeyBoard : public OperationKeyBoard{
     void pressEquals();
 };
 
-class MyNumericKeyBoard : public NumericKeyBoard{
+class JhonatanNumericKeyBoard : public NumericKeyBoard{
   private:
     Cpu *cpu;
 
@@ -72,7 +72,7 @@ class MyNumericKeyBoard : public NumericKeyBoard{
     void pressNine();
 };
 
-class MyCalculator : public Calculator{
+class JhonatanCalculator : public Calculator{
   private:
     Cpu* cpu;
     Display* display;
@@ -80,8 +80,8 @@ class MyCalculator : public Calculator{
     OperationKeyBoard* operationKeyBoard;
 
   public:
-    MyCalculator(Cpu *cpu, Display *display, NumericKeyBoard *numericKeyBoard, OperationKeyBoard *operationKeyBoard);
-    ~MyCalculator();
+    JhonatanCalculator(Cpu *cpu, Display *display, NumericKeyBoard *numericKeyBoard, OperationKeyBoard *operationKeyBoard);
+    ~JhonatanCalculator();
 
     void setNumericKeyBoard(NumericKeyBoard* numericKeyBoard);
     NumericKeyBoard* getNumericKeyBoard();

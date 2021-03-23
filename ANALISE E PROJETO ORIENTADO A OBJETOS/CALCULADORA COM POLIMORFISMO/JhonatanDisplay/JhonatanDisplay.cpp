@@ -1,6 +1,6 @@
-#include "../myCalculator.h"
+#include "../JhonatanCalculator.h"
 
-void MyDisplay::addDigit(Digit number){
+void JhonatanDisplay::addDigit(Digit number){
   switch (number){
   case ZERO:
     std::cout << "\n00000\n0   0\n0   0\n0   0\n00000\n";
@@ -36,11 +36,11 @@ void MyDisplay::addDigit(Digit number){
 };
 
 
-void MyDisplay::addDecimalSeparator(){
+void JhonatanDisplay::addDecimalSeparator(){
   std::cout << "\n0\n";
 }
 
-void MyDisplay::setSignal(Signal signal){
+void JhonatanDisplay::setSignal(Signal signal){
   switch(signal){
     case POSITIVE:
       std::cout <<"  0  \n  0  \n00000\n  0  \n  0  \n" ;
@@ -51,7 +51,7 @@ void MyDisplay::setSignal(Signal signal){
   };
 }
 
-void MyDisplay::clear(){
+void JhonatanDisplay::clear(){
   std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";  
 };
 

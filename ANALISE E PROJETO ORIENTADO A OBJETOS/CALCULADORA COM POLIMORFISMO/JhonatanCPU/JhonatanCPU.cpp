@@ -1,21 +1,21 @@
-#include "../myCalculator.h"
+#include "../JhonatanCalculator.h"
 #include <math.h>
 #include <exception>
 #include <string>
 
 // PUBLIC (+)
-MyCpu::MyCpu(){
+JhonatanCpu::JhonatanCpu(){
   this->operandOneCounter = 0;
   this->operandTwoCounter = 0;
   this->operation = NONE;
   this->signal = POSITIVE;
 }
 
-void MyCpu::setDisplay(Display *display){
+void JhonatanCpu::setDisplay(Display *display){
   this->display = display;
 }
 
-void MyCpu::receiveDigit(Digit digit){
+void JhonatanCpu::receiveDigit(Digit digit){
   try{
     if(this->operandOneCounter >= this->maxDigits) throw;
     if(this->operandTwoCounter >= this->maxDigits) throw;
@@ -33,7 +33,7 @@ void MyCpu::receiveDigit(Digit digit){
 
 }
 
-void MyCpu::receiveOperation(Operation operation){
+void JhonatanCpu::receiveOperation(Operation operation){
   this->display->clear();
 
   if(operation == EQUAL) {
@@ -44,7 +44,7 @@ void MyCpu::receiveOperation(Operation operation){
   this->operation = operation;
 }
 
-void MyCpu::cancel(){
+void JhonatanCpu::cancel(){
   this->display->clear();
 
   if(this->operation == NONE){
@@ -54,14 +54,14 @@ void MyCpu::cancel(){
   }
 }
 
-void MyCpu::reset(){
+void JhonatanCpu::reset(){
   this->operandOneCounter = 0;
   this->operandTwoCounter = 0;
   this->operation = NONE;
   this->signal = POSITIVE;
 }
 
-int MyCpu::digitToInt(Digit *operand, int count){
+int JhonatanCpu::digitToInt(Digit *operand, int count){
   int result = 0;
   
   for(int i = 0; i < count; i++){
@@ -72,7 +72,7 @@ int MyCpu::digitToInt(Digit *operand, int count){
   return result;
 }
 
-void MyCpu::intToDigit(int number, Digit *digit, int *digitLenght, Signal *signal){
+void JhonatanCpu::intToDigit(int number, Digit *digit, int *digitLenght, Signal *signal){
   *digitLenght = 0;
 
   *signal = (number < 0) ? NEGATIVE : POSITIVE;
@@ -89,7 +89,7 @@ void MyCpu::intToDigit(int number, Digit *digit, int *digitLenght, Signal *signa
   }
 }
 
-void MyCpu::calculate(){
+void JhonatanCpu::calculate(){
   int n1 = digitToInt(this->operandOne, this->operandOneCounter);
   int n2 = digitToInt(this->operandTwo, this->operandTwoCounter);
 

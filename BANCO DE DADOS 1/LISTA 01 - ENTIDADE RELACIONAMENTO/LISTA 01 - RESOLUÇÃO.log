@@ -1,0 +1,301 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2 32-bit) (preloaded format=pdflatex 2021.2.22)  22 MAR 2021 18:20
+entering extended mode
+**"./LISTA 01 - RESOLUÇÃO.tex"
+(LISTA 01 - RESOLUÇÃO.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> xparse <2020-03-03>
+(C:\Program Files\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(C:\Program Files\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+)
+(C:\Program Files\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/01/26 3.53 The Babel package
+
+(C:\Program Files\MiKTeX\tex/generic/babel\babel.def
+File: babel.def 2021/01/26 3.53 Babel common definitions
+\babel@savecnt=\count187
+\U@D=\dimen139
+\l@babelnohyphens=\language79
+
+(C:\Program Files\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count188
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Program Files\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Program Files\MiKTeX\tex/latex/babel-portuges\brazil.ldf
+Language: portuges 2021/02/04 v1.2s Portuguese support from the babel system
+Package babel Info: \l@brazil = using hyphenrules for portuguese
+(babel)             (\language56) on input line 111.
+Package babel Info: Making " an active character on input line 143.
+))
+(C:\Program Files\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+(C:\Program Files\MiKTeX\tex/latex/latex-tools\verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read3
+)
+(C:\Program Files\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box47
+\UL@hyphenbox=\box48
+\UL@skip=\skip49
+\UL@hook=\toks19
+\UL@height=\dimen140
+\UL@pe=\count189
+\UL@pixel=\dimen141
+\ULC@box=\box49
+Package: ulem 2019/11/18
+\ULdepth=\dimen142
+)
+(C:\Program Files\MiKTeX\tex/latex/latex-tools\indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(C:\Program Files\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(C:\Program Files\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count190
+\float@exts=\toks20
+\float@box=\box50
+\@float@everytoks=\toks21
+\@floatcapt=\box51
+)
+(C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip50
+\f@nch@O@elh=\skip51
+\f@nch@O@erh=\skip52
+\f@nch@O@olh=\skip53
+\f@nch@O@orh=\skip54
+\f@nch@O@elf=\skip55
+\f@nch@O@erf=\skip56
+\f@nch@O@olf=\skip57
+\f@nch@O@orf=\skip58
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+)
+(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count191
+\l__pdf_internal_box=\box52
+)
+(LISTA 01 - RESOLUÇÃO.aux)
+\openout1 = `"LISTA 01 - RESOLUÇÃO.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+
+(C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count192
+\scratchdimen=\dimen145
+\scratchbox=\box53
+\nofMPsegments=\count193
+\nofMParguments=\count194
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count195
+\MPscratchDim=\dimen146
+\MPnumerator=\count196
+\makeMPintoPDFobject=\count197
+\everyMPtoPDFconversion=\toks24
+) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+<LISTA 01 - EX 1 RESOLUÇÃO.png, id=1, 3079.505pt x 2356.805pt>
+File: LISTA 01 - EX 1 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 1 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 1 RESOLUÇÃO.png  used on input line 70
+.
+(pdftex.def)             Requested size: 386.96024pt x 296.14626pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[1{C:/Users/Jhonatan/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+
+ <./LISTA 01 - EX 1 RESOLUÇÃO.png>]
+<LISTA 01 - EX 2 RESOLUÇÃO.png, id=11, 3047.385pt x 2445.135pt>
+File: LISTA 01 - EX 2 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 2 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 2 RESOLUÇÃO.png  used on input line 85
+.
+(pdftex.def)             Requested size: 455.24408pt x 365.26204pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2 <./LISTA 01 - EX 2 RESOLUÇÃO.png>]
+<LISTA 01 - EX 3 RESOLUÇÃO.png, id=16, 3216.015pt x 1469.49pt>
+File: LISTA 01 - EX 3 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 3 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 3 RESOLUÇÃO.png  used on input line 10
+6.
+(pdftex.def)             Requested size: 455.24408pt x 208.0143pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3 <./LISTA 01 - EX 3 RESOLUÇÃO.png>]
+<LISTA 01 - EX 4 RESOLUÇÃO.png, id=21, 2934.965pt x 2312.64pt>
+File: LISTA 01 - EX 4 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 4 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 4 RESOLUÇÃO.png  used on input line 12
+5.
+(pdftex.def)             Requested size: 455.24408pt x 358.70251pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4 <./LISTA 01 - EX 4 RESOLUÇÃO.png>]
+<LISTA 01 - EX 5 RESOLUÇÃO.png, id=26, 2694.065pt x 3003.22pt>
+File: LISTA 01 - EX 5 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 5 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 5 RESOLUÇÃO.png  used on input line 14
+4.
+(pdftex.def)             Requested size: 318.66946pt x 355.23842pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5 <./LISTA 01 - EX 5 RESOLUÇÃO.png>]
+<LISTA 01 - EX 6 RESOLUÇÃO.png, id=31, 3899.56876pt x 2489.3pt>
+File: LISTA 01 - EX 6 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 6 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 6 RESOLUÇÃO.png  used on input line 16
+1.
+(pdftex.def)             Requested size: 455.24408pt x 290.57462pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6 <./LISTA 01 - EX 6 RESOLUÇÃO.png>]
+<LISTA 01 - EX 7 RESOLUÇÃO.png, id=36, 2559.5625pt x 1440.38126pt>
+File: LISTA 01 - EX 7 RESOLUÇÃO.png Graphic file (type png)
+<use LISTA 01 - EX 7 RESOLUÇÃO.png>
+Package pdftex.def Info: LISTA 01 - EX 7 RESOLUÇÃO.png  used on input line 17
+8.
+(pdftex.def)             Requested size: 455.24408pt x 256.18047pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7 <./LISTA 01 - EX 7 RESOLUÇÃO.png>] (LISTA 01 - RESOLUÇÃO.aux) ) 
+Here is how much of TeX's memory you used:
+ 2608 strings out of 479334
+ 37373 string characters out of 2866951
+ 343346 words of memory out of 3000000
+ 20050 multiletter control sequences out of 15000+200000
+ 406917 words of font info for 33 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 68i,10n,74p,231b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\User
+s\Jhonatan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk>
+ <C:\Users\Jhonatan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
+m1200.pk> <C:\Users\Jhonatan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecbx1200.pk>
+Output written on "LISTA 01 - RESOLUÇÃO.pdf" (7 pages, 627580 bytes).
+PDF statistics:
+ 181 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+

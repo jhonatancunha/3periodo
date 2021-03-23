@@ -1,10 +1,10 @@
 all:
-	g++ -g -c CPU/myCPU.cpp
-	g++ -g -c Display/myDisplay.cpp
-	g++ -g -c NumericKeyBoard/myNumericKeyBoard.cpp
-	g++ -g -c OperationKeyBoard/myOperationKeyBoard.cpp
-	g++ -g -c Calculator/myCalculator.cpp
-	g++ -g -c myInterfaceTest.cpp
+	g++ -g -c JhonatanCPU/JhonatanCPU.cpp
+	g++ -g -c JhonatanDisplay/JhonatanDisplay.cpp
+	g++ -g -c JhonatanNumericKeyBoard/JhonatanNumericKeyBoard.cpp
+	g++ -g -c JhonatanOperationKeyBoard/JhonatanOperationKeyBoard.cpp
+	g++ -g -c JhonatanCalculator/JhonatanCalculator.cpp
+	g++ -g -c InterfaceTest.cpp
 	g++ -g -c main.cpp
 	g++ -o main *.o
 	

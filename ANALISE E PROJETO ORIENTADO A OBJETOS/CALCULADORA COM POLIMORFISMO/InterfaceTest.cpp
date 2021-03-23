@@ -4,7 +4,7 @@
  * Version: 20210316
  */
 
-#include "interface.h"
+#include "calculator.h"
 
 class DisplayTest{
   public:
@@ -46,14 +46,6 @@ class CpuTest{
           cpu->receiveDigit(FIVE);
           cpu->receiveDigit(SIX);
           
-          cpu->receiveOperation(EQUAL);
-
-          cpu->receiveDigit(ONE);
-          
-          cpu->receiveOperation(EQUAL);
-
-          cpu->receiveOperation(MULTIPLICATION);
-          cpu->receiveDigit(TWO);
           cpu->receiveOperation(EQUAL);
 
           cpu->reset();

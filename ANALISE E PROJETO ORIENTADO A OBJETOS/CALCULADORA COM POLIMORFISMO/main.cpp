@@ -1,17 +1,17 @@
 #include <iostream>
-#include "myCalculator.h"
-#include "myInterfaceTest.cpp"
+#include "JhonatanCalculator.h"
+#include "InterfaceTest.cpp"
 
 
 int main(int argc, char* argv[]){
-  Display *myDisplay = new MyDisplay();
-  OperationKeyBoard *opKey = new MyOperationKeyBoard();
-  NumericKeyBoard *numberKey = new MyNumericKeyBoard();
-  Cpu *myCpu = new MyCpu();
-  Calculator *myCalc = new MyCalculator(myCpu, myDisplay, numberKey, opKey);
+  Display *display = new JhonatanDisplay();
+  OperationKeyBoard *operationKeyBoard = new JhonatanOperationKeyBoard();
+  NumericKeyBoard *numericKeyBoard = new JhonatanNumericKeyBoard();
+  Cpu *cpu = new JhonatanCpu();
+  Calculator *JhonatanCalc = new JhonatanCalculator(cpu, display, numericKeyBoard, operationKeyBoard);
   
   
-  CalculatorTest::run(myCalc);
+  CalculatorTest::run(JhonatanCalc);
 
   return 0;
 }

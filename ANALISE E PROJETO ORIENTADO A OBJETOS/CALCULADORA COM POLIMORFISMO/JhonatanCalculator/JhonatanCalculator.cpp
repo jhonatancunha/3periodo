@@ -1,8 +1,8 @@
-#include "../myCalculator.h"
+#include "../JhonatanCalculator.h"
 #include <cstdlib>
 
 // PUBLIC (+)
-MyCalculator::MyCalculator(Cpu *cpu, Display *display, NumericKeyBoard *numericKeyBoard, OperationKeyBoard *operationKeyBoard){
+JhonatanCalculator::JhonatanCalculator(Cpu *cpu, Display *display, NumericKeyBoard *numericKeyBoard, OperationKeyBoard *operationKeyBoard){
   
   this->setCpu(cpu);
   this->setDisplay(display);
@@ -14,41 +14,41 @@ MyCalculator::MyCalculator(Cpu *cpu, Display *display, NumericKeyBoard *numericK
   this->operationKeyBoard->setCpu(cpu);
 }
 
-MyCalculator::~MyCalculator(){
+JhonatanCalculator::~JhonatanCalculator(){
   delete this->cpu;
   delete this->display;
   delete this->numericKeyBoard;
   delete this->operationKeyBoard;
 }
 
-void MyCalculator::setNumericKeyBoard(NumericKeyBoard *numericKeyBoard){
+void JhonatanCalculator::setNumericKeyBoard(NumericKeyBoard *numericKeyBoard){
   this->numericKeyBoard = numericKeyBoard;
 }
 
-void MyCalculator::setOperationKeyBoard(OperationKeyBoard *operationKeyBoard){
+void JhonatanCalculator::setOperationKeyBoard(OperationKeyBoard *operationKeyBoard){
   this->operationKeyBoard = operationKeyBoard;
 }
 
-NumericKeyBoard* MyCalculator::getNumericKeyBoard(){
+NumericKeyBoard* JhonatanCalculator::getNumericKeyBoard(){
   return this->numericKeyBoard;
 }
 
-OperationKeyBoard* MyCalculator::getOperationKeyBoard(){
+OperationKeyBoard* JhonatanCalculator::getOperationKeyBoard(){
   return this->operationKeyBoard;
 }
 
-void MyCalculator::setDisplay(Display *display){
+void JhonatanCalculator::setDisplay(Display *display){
   this->display = display;
 }
 
-Display* MyCalculator::getDisplay(){
+Display* JhonatanCalculator::getDisplay(){
   return this->display;
 }
 
-void MyCalculator::setCpu(Cpu* cpu){
+void JhonatanCalculator::setCpu(Cpu* cpu){
   this->cpu = cpu;
 }
 
-Cpu* MyCalculator::getCpu(){
+Cpu* JhonatanCalculator::getCpu(){
   return this->cpu;
 }
