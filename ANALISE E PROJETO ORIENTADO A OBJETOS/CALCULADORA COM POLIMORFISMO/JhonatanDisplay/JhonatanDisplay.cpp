@@ -52,7 +52,7 @@ void JhonatanDisplay::setSignal(Signal signal){
 }
 
 void JhonatanDisplay::clear(){
-  std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";  
+  std::cout << "\n\n\n\n";  
 };
 
 

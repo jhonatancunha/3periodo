@@ -47,6 +47,22 @@ class CpuTest{
           cpu->receiveDigit(SIX);
           
           cpu->receiveOperation(EQUAL);
+          
+          cpu->receiveOperation(SUBTRACTION);
+ 
+          cpu->receiveDigit(ONE);
+          cpu->receiveDigit(ONE);
+          cpu->receiveDigit(ONE);
+ 
+          cpu->receiveOperation(ADDITION);
+
+          cpu->receiveDigit(ONE);
+
+          cpu->receiveOperation(ADDITION);
+
+          cpu->receiveDigit(ONE);
+
+          cpu->receiveOperation(EQUAL);
 
           cpu->reset();
     };
@@ -55,7 +71,7 @@ class CpuTest{
 class CalculatorTest{
     public:
       static void run(Calculator* calculator){
-          DisplayTest::run(calculator->getDisplay());
+          // DisplayTest::run(calculator->getDisplay());
           CpuTest::run(calculator->getCpu(), calculator->getDisplay());
       };
     

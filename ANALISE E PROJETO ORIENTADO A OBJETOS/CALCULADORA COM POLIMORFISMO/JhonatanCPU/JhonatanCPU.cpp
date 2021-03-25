@@ -34,13 +34,11 @@ void JhonatanCpu::receiveDigit(Digit digit){
 }
 
 void JhonatanCpu::receiveOperation(Operation operation){
-  this->display->clear();
 
-  if(operation == EQUAL) {
+  if(this->operation != NONE && this->operation != EQUAL)
     this->calculate();
-    return;
-  }
-
+  
+  this->display->clear();
   this->operation = operation;
 }
 
@@ -90,6 +88,7 @@ void JhonatanCpu::intToDigit(int number, Digit *digit, int *digitLenght, Signal 
 }
 
 void JhonatanCpu::calculate(){
+
   int n1 = digitToInt(this->operandOne, this->operandOneCounter);
   int n2 = digitToInt(this->operandTwo, this->operandTwoCounter);
 
@@ -108,6 +107,7 @@ void JhonatanCpu::calculate(){
     break;
   }
 
+  this->display->clear();
   this->display->setSignal(this->signal);
   for(int i = 0; i < this->operandOneCounter; i++){
     this->display->addDigit(this->operandOne[i]);
