@@ -1,0 +1,31 @@
+O que você esta tentando alcançar?
+
+• Verificar se existe dificuldade do acesso a informações relacionadas ao ambiente escolar, como: doações que a escola precisa, alunos que necessitam de doações, 		eventos que as escolas promove, cursos e promoções (rifas online).
+
+
+Quem são os clientes atuais?
+
+• Comunidade geral e fúncionarios do meio educacional.
+
+
+Quem são os clientes alvo para o Sprint?
+
+• Comunidade geral e fúncionarios do meio educacional.
+
+
+Qual o problema/lacuna entre os clientes alvos e os existentes?
+
+• Dificuldade de obter acessos as informações. 
+
+
+O que você deseja saber sobre o usuário final?
+• Se realmente chegam as informações à comunidade.
+
+
+Quais são as principais perguntas que você gostaria de ter a resposta através do Sprint?
+
+• Qual a melhor maneira de disponibilizar as informações de forma centralizada à comunidade.
+
+
+Quais empresas podem servir de inspiração para o Sprint/desafio em questão?
+

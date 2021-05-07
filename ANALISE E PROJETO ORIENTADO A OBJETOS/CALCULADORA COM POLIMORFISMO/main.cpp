@@ -14,6 +14,8 @@
 //NAKAO
 #include "MatheusKenjiNakao/calculatorNakao.cpp"
 
+using namespace std;
+
 int main(int argc, char* argv[]){
   Display * display1 = new ArthurDisplay();  
   Display * display2 = new DisplayJessePires();  
@@ -42,30 +44,34 @@ int main(int argc, char* argv[]){
   NumericKeyBoard *numKey4 = new JhonatanNumericKeyBoard();
 
 
-  Calculator *c1 = new JhonatanCalculator(cpu1 , display1, numKey2, opKey2);
-  Calculator *c2 = new JhonatanCalculator(cpu2 , display2, numKey2, opKey2);
-  Calculator *c3 = new JhonatanCalculator(cpu3 , display3, numKey3, opKey3);
-  Calculator *c4 = new JhonatanCalculator(cpu4 , display4, numKey4, opKey4);
+  Calculator *c1 = new JhonatanCalculator(cpu2 , display3, numKey1, opKey4);
+  Calculator *c2 = new JhonatanCalculator(cpu1 , display3, numKey4, opKey2);
+  Calculator *c3 = new JhonatanCalculator(cpu3 , display2, numKey1, opKey4);
+  Calculator *c4 = new JhonatanCalculator(cpu4 , display1, numKey2, opKey3);
 
 
-  std::cout << "=======================================" << '\n';
-  std::cout << "TESTANDO CALCULADORA ARTHUR" << '\n';
-  std::cout << "=======================================" << '\n';
+  cout << "=======================================" << '\n';
+  cout << "TESTANDO CALCULADORA 1" << '\n';
+  cout << "CPU: Jesse Pires\nDisplay: Nakao\nNumericKeyBoard: Arthur\nOperationKeyBoard: Jhonatan Cunha\n";
+  cout << "=======================================" << '\n';
   CalculatorTest::run(c1);  
 
-  std::cout << "=======================================" << '\n';
-  std::cout << "TESTANDO CALCULADORA JESSÉ" << '\n';
-  std::cout << "=======================================" << '\n';
+  cout << "=======================================" << '\n';
+  cout << "TESTANDO CALCULADORA 2" << '\n';
+  cout << "CPU: Arthur\nDisplay: Nakao\nNumericKeyBoard: Jhonatan Cunha\nOperationKeyBoard: Jesse Pires\n";
+  cout << "=======================================" << '\n';
   CalculatorTest::run(c2);  
 
-  std::cout << "=======================================" << '\n';
-  std::cout << "TESTANDO CALCULADORA NAKAO" << '\n';
-  std::cout << "=======================================" << '\n';
+  cout << "=======================================" << '\n';
+  cout << "TESTANDO CALCULADORA 3" << '\n';
+  cout << "CPU: Nakao\nDisplay: Jesse Pires\nNumericKeyBoard: Arthur\nOperationKeyBoard: Jhonatan Cunha\n";
+  cout << "=======================================" << '\n';
   CalculatorTest::run(c3);
 
-  std::cout << "=======================================" << '\n';
-  std::cout << "TESTANDO CALCULADORA JHONATAN" << '\n';
-  std::cout << "=======================================" << '\n';
+  cout << "=======================================" << '\n';
+  cout << "TESTANDO CALCULADORA 4" << '\n';
+  cout << "CPU: Jhonatan Cunha\nDisplay: Arthur\nNumericKeyBoard: Jesse Pires\nOperationKeyBoard: Nakao\n";
+  cout << "=======================================" << '\n';
   CalculatorTest::run(c4);  
 
   return 0;

@@ -1,0 +1,15 @@
+TAREFA 1
+
+Sentimos falta de alguma tela inicial que auxiliaria o usuario no processo de criação de um novo projeto, fornecendo botões como: "Criado novo projeto em branco", "Criar projeto importando audio", "Criar novo projeto baseado em um já existente".
+
+Uma outra implementação que consideramos necessária, foi a inserção do sistema de abas no software. Onde ao criar um novo projeto, o programa organizaria via abas, ao contrario do que é feito atualmente, sempre criando uma nova janela para cada projeto.
+
+TAREFA 2
+
+TAREFA 3
+
+TAREFA 4
+
+TAREFA 5
+
+TAREFA 6
