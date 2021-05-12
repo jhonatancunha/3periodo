@@ -30,7 +30,16 @@ CREATE TABLE ESTAGIARIO (
         ON DELETE CASCADE
 );
 
-
+CREATE TABLE VETERINARIO(
+	cpf VARCHAR(11),
+    crmv INTEGER,
+    dia_plantao ENUM('segunda-feira', 'terça-feira', 'quarta-feira', 'quina-feira', 'sexta-feira', 'sabado', 'domingo'),
+    horas_plantao INTEGER,
+	PRIMARY KEY (cpf),
+    FOREIGN KEY (cpf)
+		REFERENCES FUNCIONARIO(cpf)
+        ON DELETE CASCADE
+);
 
 CREATE TABLE CLIENTE (
 	cpf VARCHAR(11),
@@ -66,7 +75,7 @@ CREATE TABLE RACA (
 CREATE TABLE ATENDIMENTO (
 	id INTEGER NOT NULL AUTO_INCREMENT,
     data_aten DATE,
-    custo FLOAT(10, 2),
+    custo FLOAT(10, 2),	
     descricao VARCHAR(300),
     PRIMARY KEY (id)
 );
