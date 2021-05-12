@@ -32,7 +32,7 @@ CREATE TABLE ESTAGIARIO (
 
 CREATE TABLE VETERINARIO(
 	cpf VARCHAR(11),
-    crmv INTEGER,
+    crmv_uf CHAR(2),
     dia_plantao ENUM('segunda-feira', 'terça-feira', 'quarta-feira', 'quina-feira', 'sexta-feira', 'sabado', 'domingo'),
     horas_plantao INTEGER,
 	PRIMARY KEY (cpf),
