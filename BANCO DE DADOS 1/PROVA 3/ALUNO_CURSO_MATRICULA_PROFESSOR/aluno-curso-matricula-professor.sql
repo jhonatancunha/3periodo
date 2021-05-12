@@ -1,24 +1,6 @@
--- Selecione todos alunos que são menores do que 20 anos e são do nível 'JR'
-
--- Selecione os professores que são do departamento  68
-
--- Selecione os alunos que se matricularam em curso de 'Database Systems'
-
--- Selecione os nomes dos professores que ministraram algum curso na sala '20 AVW'
-
--- Selecione o nivel dos alunos (sem repetição) que cursaram algum curso na sala '20 AVW'
-
--- Liste o nome do alunos e o nome da formação cuja formação contenha a string 'cie'
-
--- Conte o número de alunos.
-
--- Quantas matrículas há no curso com nome 'Database Systems'
-
--- Selecione o nome de todos os professores dos departamentos 68 e 12.
-
--- Selecione o nome dos professores que deram aulas no curso com 'Database Systems' ou são do departamento 68.
-
--- Selecione o número dos alunos com formação 'Computer Science' ou que fizeram o curso de 'Database Systems'.
+DROP DATABASE IF EXISTS escola;
+CREATE DATABASE escola;
+USE escola;
 
 DROP TABLE IF EXISTS MATRICULADO;
 DROP TABLE IF EXISTS ALUNO;
