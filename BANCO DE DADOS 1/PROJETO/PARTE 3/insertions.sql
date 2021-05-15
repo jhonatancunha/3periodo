@@ -32,6 +32,7 @@ INSERT INTO FUNCIONARIO(nome, cpf, pis) VALUES
 ('Liz Emanuelly Olivia Dias', '63440994961', '53609280598'),
 ('Jéssica Mariah Sales', '09901450934', '58846609152');
 
+
 INSERT INTO ESTAGIARIO(cpf, inicio_exp, fim_exp, turno) VALUES
 ('82784453979', '2020-12-01', '2021-05-01', 'matutino'),
 ('39688425966', '2021-01-01', '2021-06-01', 'vespertino'),
@@ -83,6 +84,7 @@ INSERT INTO ENDERECO(rua, tipo_logradouro, numero, complemento) VALUES
 ('Santa Gertrudes', 'Rua', 488, 'Casa'),
 ('Angico', 'Rua', 652, 'Casa');
 
+
 INSERT INTO CLIENTE(cpf, nome, telefone, end_rua, end_numero) VALUES
 ('43567143182', 'Manoel Edson Baptista',  '44997811987', 'União', 334),
 ('11293381187', 'Sérgio Bento Cardoso', '44992871837', 'Ceará Mirim', 444),
@@ -96,7 +98,7 @@ INSERT INTO CLIENTE(cpf, nome, telefone, end_rua, end_numero) VALUES
 ('34098340879', 'Igor Lucca Paulo Gonçalves', '44993761378', 'Angico', 652);
 
 
-INSERT INTO RECEP_ATEND_CLIENTE(cpf_cliente_cpf, cpf_recep) VALUES
+INSERT INTO RECEP_ATEND_CLIENTE(cpf_cliente, cpf_recep) VALUES
 ('43567143182', '53304143939'),
 ('11293381187', '53304143939'),
 ('25512706420', '53304143939'),
@@ -120,6 +122,7 @@ INSERT INTO RACA(nome, nivel_cuidado, porte, caracteristica) VALUES
 ('Pequinês', 'medio', 'P', 'afetuoso'),
 ('Rottweiler', 'alto', 'G', 'protetor'),
 ('Dálmata', 'medio', 'G', 'atlético');
+
 
 INSERT INTO CACHORRO(nome, data_nasc, sexo, nome_raca, cpf_cliente) VALUES
 ('Bob', '2016-12-02', 'macho', 'Akita', '43567143182'),
@@ -146,6 +149,7 @@ INSERT INTO TIPO(nome, descricao, nivel_gravidade) VALUES
 ('Desintoxicação', 'Atendimento parar desintoxicar o cachorro.', 'alto'),
 ('Emergêncial', 'Atendimentos com urgencia extrema.', 'alto');
 
+
 INSERT INTO ATENDIMENTO (data_aten, custo, descricao, id_cachorro, tipo, cpf_veterinario) VALUES
 ('2021-04-02', 103.4, 'O cachorro apresentava uma quantidade preocupante de tartaro em seus dentes.', 9, 'Odontológico', '50478290900'),
 ('2021-03-22', 1000, 'O cachorro estava com uma ferida muito grave na região do seu tórax.', 4, 'Emergêncial', '43986387927'),
@@ -159,32 +163,28 @@ INSERT INTO ATENDIMENTO (data_aten, custo, descricao, id_cachorro, tipo, cpf_vet
 ('2021-04-14', 780, 'Necessário pois o cachorro é muito velho, então devemos monitorar sua saúde.', 9, 'Cardiologico', '50478290900');
 
 
-#CREATE TABLE RACAO(
-#	marca VARCHAR(100),
-#    kg FLOAT,
-#    valor_kg FLOAT,
-#    PRIMARY KEY(marca)
-#);
-
-#INSERT INTO RACAO(marca, kg, valor_kg) VALUES
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , ),
-#('', , );
-
-#CREATE TABLE ESTAG_COMPRA_RACAO(
-#	marca_racao VARCHAR(100),
-#    cpf_estag VARCHAR(11),
-#    PRIMARY KEY(marca_racao, cpf_estag),
-#    FOREIGN KEY (cpf_estag) REFERENCES ESTAGIARIO(cpf),
-#    FOREIGN KEY (marca_racao) REFERENCES RACAO(marca)
-#);
+INSERT INTO RACAO(marca, kg_pacote, valor_kg) VALUES
+("AuAu Dog's", 50,10),
+("HotMeat Dog's", 20,11.5),
+("Basic Dog's", 50,5),
+("Premium Dog's", 15,25),
+("Elementary Dog's", 10,15),
+("Poor Dog's", 100,3.5),
+("Milk Dog's", 50,8.4),
+("PrettyHair Dog's", 20,19.5),
+("CareSkin Dog's", 18,20),
+("PuppyDog's", 30,17.5);
 
 
+INSERT INTO ESTAG_COMPRA_RACAO(marca_racao, qtd_pacote,cpf_estag) VALUES
+("Poor Dog's", 1,'82784453979'),
+("Premium Dog's", 3,'82784453979'),
+("Basic Dog's", 10,'82784453979'),
+("PuppyDog's", 5,'07853675941'),
+("HotMeat Dog's", 1,'07853675941'),
+("CareSkin Dog's", 3,'56181313907'),
+("AuAu Dog's", 5,'93962787933'),
+("Elementary Dog's", 2,'52538729904'),
+("Poor Dog's", 3,'48034831913'),
+("PrettyHair Dog's", 3,'39688425966');
 

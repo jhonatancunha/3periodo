@@ -96,15 +96,18 @@ CREATE TABLE CACHORRO (
 	FOREIGN KEY (cpf_cliente) REFERENCES CLIENTE(cpf)
 );
 
+# OK
 CREATE TABLE RACAO(
 	marca VARCHAR(100),
-    kg FLOAT,
+    kg_pacote FLOAT,
     valor_kg FLOAT,
     PRIMARY KEY(marca)
 );
 
+# OK
 CREATE TABLE ESTAG_COMPRA_RACAO(
 	marca_racao VARCHAR(100),
+    qtd_pacote INTEGER,
     cpf_estag VARCHAR(11),
     PRIMARY KEY(marca_racao, cpf_estag),
     FOREIGN KEY (cpf_estag) REFERENCES ESTAGIARIO(cpf),
