@@ -41,14 +41,16 @@ CREATE TABLE VETERINARIO(
         ON DELETE CASCADE
 );
 
+# OK
 CREATE TABLE ENDERECO (
 	rua VARCHAR (100),
-	logradouro VARCHAR(50),
+	tipo_logradouro VARCHAR(50),
     numero INTEGER,
     complemento VARCHAR(200),
     PRIMARY KEY(rua, numero)
 );
 
+# OK
 CREATE TABLE CLIENTE (
 	cpf VARCHAR(11),
     nome VARCHAR(100),
@@ -67,14 +69,16 @@ CREATE TABLE RECEP_ATEND_CLIENTE(
     FOREIGN KEY (cpf_recep) REFERENCES RECEPCIONISTA(cpf)
 );
 
+# OK
 CREATE TABLE RACA (
 	nome VARCHAR(100),
-    porte ENUM('mini', 'P', 'M', 'G'),
+    porte ENUM('P', 'M', 'G'),
     nivel_cuidado ENUM('baixo', 'medio' ,'alto'),
     caracteristica VARCHAR(200),
     PRIMARY KEY(nome)
 );
 
+# OK
 CREATE TABLE CACHORRO (
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	nome VARCHAR(100),
