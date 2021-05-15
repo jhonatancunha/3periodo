@@ -3,6 +3,7 @@ CREATE DATABASE pet_adopt;
 USE pet_adopt;
 
 
+# OK
 CREATE TABLE FUNCIONARIO (
 	nome VARCHAR(100),
     cpf CHAR(11),
@@ -10,6 +11,7 @@ CREATE TABLE FUNCIONARIO (
     PRIMARY KEY (cpf)
 );
 
+# OK
 CREATE TABLE RECEPCIONISTA (
 	cpf VARCHAR(11),
     telefone VARCHAR(11),
@@ -19,6 +21,7 @@ CREATE TABLE RECEPCIONISTA (
         ON DELETE CASCADE
 );
 
+# OK
 CREATE TABLE ESTAGIARIO (
 	cpf VARCHAR(11),
     inicio_exp DATE,
@@ -30,10 +33,11 @@ CREATE TABLE ESTAGIARIO (
         ON DELETE CASCADE
 );
 
+# OK
 CREATE TABLE VETERINARIO(
 	cpf VARCHAR(11),
     crmv_uf CHAR(2),
-    dia_plantao ENUM('segunda-feira', 'terça-feira', 'quarta-feira', 'quina-feira', 'sexta-feira', 'sabado', 'domingo'),
+    dia_plantao ENUM('segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sabado', 'domingo'),
     horas_plantao INTEGER,
 	PRIMARY KEY (cpf),
     FOREIGN KEY (cpf)
@@ -106,6 +110,7 @@ CREATE TABLE ESTAG_COMPRA_RACAO(
     FOREIGN KEY (marca_racao) REFERENCES RACAO(marca)
 );
 
+# OK
 CREATE TABLE TIPO (
 	nome VARCHAR(100),
     descricao VARCHAR(300),
@@ -113,6 +118,7 @@ CREATE TABLE TIPO (
     PRIMARY KEY (nome)
 );
 
+# OK
 CREATE TABLE ATENDIMENTO (
 	id INTEGER NOT NULL AUTO_INCREMENT,
     data_aten DATE,
