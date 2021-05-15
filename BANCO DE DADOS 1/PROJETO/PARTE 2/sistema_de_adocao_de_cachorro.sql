@@ -65,6 +65,7 @@ CREATE TABLE CLIENTE (
     FOREIGN KEY (end_rua, end_numero) REFERENCES ENDERECO(rua, numero)
 );
 
+# OK
 CREATE TABLE RECEP_ATEND_CLIENTE(
 	cpf_cliente VARCHAR(11),
     cpf_recep VARCHAR(11),

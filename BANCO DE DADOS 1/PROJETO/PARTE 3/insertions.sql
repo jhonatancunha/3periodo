@@ -96,6 +96,18 @@ INSERT INTO CLIENTE(cpf, nome, telefone, end_rua, end_numero) VALUES
 ('34098340879', 'Igor Lucca Paulo Gonçalves', '44993761378', 'Angico', 652);
 
 
+INSERT INTO RECEP_ATEND_CLIENTE(cpf_cliente_cpf, cpf_recep) VALUES
+('43567143182', '53304143939'),
+('11293381187', '53304143939'),
+('25512706420', '53304143939'),
+('57837528603', '30987004913'),
+('47557183410', '16544278963'),
+('61578070325', '84798550965'),
+('06949442629', '63069532993'),
+('18525973807', '90105909920'),
+('05510027436', '90105909920'),
+('34098340879', '90105909920');
+
 
 INSERT INTO RACA(nome, nivel_cuidado, porte, caracteristica) VALUES 
 ('Akita', 'alto', 'G', 'leal'),
@@ -147,6 +159,13 @@ INSERT INTO ATENDIMENTO (data_aten, custo, descricao, id_cachorro, tipo, cpf_vet
 ('2021-04-14', 780, 'Necessário pois o cachorro é muito velho, então devemos monitorar sua saúde.', 9, 'Cardiologico', '50478290900');
 
 
+#CREATE TABLE RACAO(
+#	marca VARCHAR(100),
+#    kg FLOAT,
+#    valor_kg FLOAT,
+#    PRIMARY KEY(marca)
+#);
+
 #INSERT INTO RACAO(marca, kg, valor_kg) VALUES
 #('', , ),
 #('', , ),
@@ -158,4 +177,14 @@ INSERT INTO ATENDIMENTO (data_aten, custo, descricao, id_cachorro, tipo, cpf_vet
 #('', , ),
 #('', , ),
 #('', , );
+
+#CREATE TABLE ESTAG_COMPRA_RACAO(
+#	marca_racao VARCHAR(100),
+#    cpf_estag VARCHAR(11),
+#    PRIMARY KEY(marca_racao, cpf_estag),
+#    FOREIGN KEY (cpf_estag) REFERENCES ESTAGIARIO(cpf),
+#    FOREIGN KEY (marca_racao) REFERENCES RACAO(marca)
+#);
+
+
 
