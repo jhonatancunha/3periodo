@@ -1,10 +1,22 @@
 #include <iostream>
+#include"./Entities/Pessoa/Pessoa.h"
+#include"./DAO/AlunoDAO.cpp"
 
-#include"FakeAPI/index.cpp"
+
+int setAlunos(){
+  //Pessoa *pessoa = new Pessoa("", "","" , "");
+  //AlunoDAO alunoDAO;
+
+  //alunoDAO.create(*aluno);
+
+  //delete aluno;
+  return 0;
+}
+
 
 int main(int argc, char *argv[]){
 
-  teste();
+  setAlunos();
 
   return 0;
 }
