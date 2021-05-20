@@ -51,6 +51,12 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-*.pdf
+
+*.mp4
+*.mp3
+*.flv
+*.wfp
+*.fsthumb
+*.mkv
 
 APS ED2

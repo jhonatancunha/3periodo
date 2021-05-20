@@ -10,7 +10,10 @@ all:
 	g++ -g -c Entities/Instrutor/Instrutor.cpp
 	g++ -g -c Entities/Pessoa/Pessoa.cpp
 <<<<<<< HEAD
+<<<<<<< HEAD
 	g++ -g -c PessoaManager/PessoaManager.cpp
+=======
+>>>>>>> c8ca4a57b09db15fd4d989c7786ffec57fc35445
 =======
 >>>>>>> c8ca4a57b09db15fd4d989c7786ffec57fc35445
 	g++ -g -c main.cpp
