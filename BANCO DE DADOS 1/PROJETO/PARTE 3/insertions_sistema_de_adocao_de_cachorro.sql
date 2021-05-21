@@ -178,13 +178,13 @@ INSERT INTO RACAO(marca, kg_pacote, valor_kg) VALUES
 
 INSERT INTO ESTAG_COMPRA_RACAO(marca_racao, qtd_pacote, cpf_estag) VALUES
 ("Poor Dog's", 1,'82784453979'),
-("Premium Dog's", 3,'82784453979'),
-("Basic Dog's", 10,'82784453979'),
+("Poor Dog's", 3,'48034831913'),
+("Poor Dog's", 10,'56181313907'),
 ("PuppyDog's", 5,'07853675941'),
 ("HotMeat Dog's", 1,'07853675941'),
 ("CareSkin Dog's", 3,'56181313907'),
 ("AuAu Dog's", 5,'93962787933'),
 ("Elementary Dog's", 2,'52538729904'),
-("Poor Dog's", 3,'48034831913'),
+("Poor Dog's", 3,'39688425966'),
 ("PrettyHair Dog's", 3,'39688425966');
 
