@@ -100,8 +100,8 @@ INSERT INTO CLIENTE(cpf, nome, telefone, end_rua, end_numero) VALUES
 
 INSERT INTO RECEP_ATEND_CLIENTE(cpf_cliente, cpf_recep) VALUES
 ('43567143182', '53304143939'),
-('11293381187', '53304143939'),
-('25512706420', '53304143939'),
+('61578070325', '53304143939'),
+('47557183410', '53304143939'),
 ('57837528603', '30987004913'),
 ('47557183410', '16544278963'),
 ('61578070325', '84798550965'),
@@ -129,7 +129,7 @@ INSERT INTO CACHORRO(nome, data_nasc, sexo, nome_raca, cpf_cliente) VALUES
 ('Mel', '2018-05-23', 'femea', 'Pinscher', '11293381187'),
 ('Nina', '2020-06-01', 'femea', 'Pug', '25512706420'),
 ('Marley', '2021-01-01', 'macho', 'Yorkshire', '57837528603'),
-('Dora', '2021-02-06', 'femea', 'Pastor alemão', '47557183410'),
+('Dora', '2021-02-06', 'femea', 'Pastor alemão', '57837528603'),
 ('Pit', '2018-12-30', 'femea', 'Lhasa apso', '61578070325'),
 ('Cebola', '2018-03-28', 'macho', 'Husky siberiano', '06949442629'),
 ('Lup', '2015-12-01', 'macho', 'Pequinês', '18525973807'),
@@ -176,7 +176,7 @@ INSERT INTO RACAO(marca, kg_pacote, valor_kg) VALUES
 ("PuppyDog's", 30,17.5);
 
 
-INSERT INTO ESTAG_COMPRA_RACAO(marca_racao, qtd_pacote,cpf_estag) VALUES
+INSERT INTO ESTAG_COMPRA_RACAO(marca_racao, qtd_pacote, cpf_estag) VALUES
 ("Poor Dog's", 1,'82784453979'),
 ("Premium Dog's", 3,'82784453979'),
 ("Basic Dog's", 10,'82784453979'),
